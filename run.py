@@ -1,3 +1,6 @@
+#################### Configuration file for MCPS algorithm ############################
+######################################################################################
+
 import numpy as np
 import math as m
 from random import seed
@@ -10,24 +13,36 @@ import matplotlib.pyplot as plt
 import MCPS as TS
 import logging
 
-data=np.loadtxt('Input_Files/input.dat')
-output_file='Output_Files/transition_search_ang18_solv_en.dat'
-log_file='log.log'
+data=np.loadtxt('Input_Files/input.dat') #### dataset taken from docking
+output_file='Output_Files/transition_search.dat' ###### location for output paths from algorithm 
 
-top_z=np.max(data[:,0])
-bott_z=np.min(data[:,0])
-z_step=1
-inc_step=18
-az_step=18
-small_dev_inc=18
-small_dev_az=18
+log_file='log.log' ####### log file to indicate errors and time to run algorithm
+
+############### Index for each variable used #####################
+
 z_ind=0
 inc_ind=1
 az_ind=2
 energy_ind=3
 
-num=10000
+############## Specify top and bottom boundaries of z bins ###############
+top_z=np.max(data[:,0])
+bott_z=np.min(data[:,0])
+z_step=1 ### size of each z bin.  set here to 1
+
+############# Step size for each angle (use same small_dev_inc and small_dev_az if you dont want angle restriction to be smaller in next z bin of algorithm) ########
+inc_step=18
+az_step=18
+small_dev_inc=18
+small_dev_az=18
+
+############number of runs and processors to use (running is done in parallel)###############################
+
+num=10000 
+
 proc = 16
+
+##############################################create z bins to use in algorithm#########################################################
 
 z_num=int((top_z-bott_z)/z_step)
 N_zbins=z_num
@@ -40,6 +55,7 @@ for i in range(0,z_num):
         if (data[int(f)][z_ind]<(z_i) and data[int(f)][z_ind]>=(z_i-z_step)):
             z_list[i]=np.append(z_list[i],f)
 
+#################################### run algorithm using specified number of processors (proc) ###############################
 
 log=open(log_file,'w')
 
@@ -47,7 +63,6 @@ try:
     d = datetime.now()
     starttime = datetime.now()
     log.write(f"Began process:{starttime} \n")
-    print("Test")
     parallel_searches=Parallel(n_jobs=proc)(delayed(TS.Transition_Search)(data,z_list,output_file,N_zbins,inc_step,az_step,small_dev_inc,small_dev_az,z_ind,inc_ind,az_ind,energy_ind,itera) for itera in range(num-1))
     
     endtime = datetime.now()
