@@ -136,11 +136,9 @@ for z in range(len(min_z_grid)):
                 if Grid_inc[d] == min_inc_grid[inc]:
                     bin_data = np.append(bin_data,dens_grid[d])
         av_inc_z_dens = np.append(av_inc_z_dens,np.mean(bin_data))
-
         z_grid_proj = np.append(z_grid_proj,min_z_grid[z])
         inc_grid_proj = np.append(inc_grid_proj,min_inc_grid[inc]+11)
         av_inc_z_dens = np.append(av_inc_z_dens,np.mean(bin_data))
-
         z_grid_proj = np.append(z_grid_proj,min_z_grid[z]-0.25)     
         inc_grid_proj = np.append(inc_grid_proj,min_inc_grid[inc]+9)
         av_inc_z_dens = np.append(av_inc_z_dens,np.mean(bin_data))
@@ -150,7 +148,6 @@ for z in range(len(min_z_grid)):
         z_grid_proj = np.append(z_grid_proj,min_z_grid[z]-0.75)     
         inc_grid_proj = np.append(inc_grid_proj,min_inc_grid[inc]+9)
         av_inc_z_dens = np.append(av_inc_z_dens,np.mean(bin_data))
-
         z_grid_proj = np.append(z_grid_proj,min_z_grid[z]-0.25)     
         inc_grid_proj = np.append(inc_grid_proj,min_inc_grid[inc]+11)
         av_inc_z_dens = np.append(av_inc_z_dens,np.mean(bin_data))
@@ -164,7 +161,6 @@ for z in range(len(min_z_grid)):
         inc_z_dens_Grid[z][inc] = np.mean(bin_data)
 
 av_az_z_dens = []
-
 az_grid_proj = []
 z_grid_proj_az = []
 
