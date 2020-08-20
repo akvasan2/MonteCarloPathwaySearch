@@ -15,7 +15,8 @@ cmap="RdBu_r"
 ##############################################################################################################################
 ############################################loading in data#########################################################
 
-t_file=open('Output_Files/transition_search_ang18_solv_en.dat')
+t_file=open('Output_Files/transition_search.dat')
+
 transitions_tot=[]
 with t_file as my_file:
     for line in my_file:
@@ -63,9 +64,8 @@ cmap="RdBu_r"
 ################################  Creating grids #################################################3
 
 grid_z=[]
-top_z=16.5#np.max(data[:,0])
-bott_z=-7.5#np.min(data[:,0])
-#top_z=bott_z+6
+top_z=16.5
+bott_z=-7.5
 z_step=1
 z_num=int((top_z-bott_z)/float(z_step))
 
@@ -102,10 +102,6 @@ for z in range(len(grid_z)):
             frames = np.where((transitions_z<grid_z[z]) & (transitions_z>grid_z[z]-z_step) & (transitions_angles>grid_inc_ang[inc]) & \
                     (transitions_angles<grid_inc_ang[inc]+inc_step) & (transitions_beta>grid_az_ang[az]) & \
                     (transitions_beta<grid_az_ang[az]+az_step))
-#            for n in range(len(transitions_z)):
-#                if transitions_z[n]<grid_z[z] and transitions_z[n]>grid_z[z]-z_step:
-#                    if transitions_angles[n]>grid_inc_ang[inc] and transitions_angles[n]<grid_inc_ang[inc]+inc_step:
-#                        if transitions_beta[n]>grid_az_ang[az] and transitions_beta[n]<grid_az_ang[az]+az_step:
             Grid_density[it-1]=np.sum([np.exp(-beta*(transitions_energy[n]-en_mn)) for n in frames])
 
 np.savetxt('grid_density.dat',[i/float(inc_step*az_step) for i in Grid_density])
@@ -199,8 +195,6 @@ for z in range(len(min_z_grid)):
 ##############################################################################################################################
 
 ################################  Plotting #################################################3
-print(len(z_grid_proj))
-print(len(inc_grid_proj))
 
 plt.scatter(z_grid_proj,inc_grid_proj,c=av_inc_z_dens,cmap=cmap,s=500,marker='s')
 plt.xlim(-7,16)
@@ -212,12 +206,5 @@ plt.scatter(z_grid_proj_az,az_grid_proj,c=av_az_z_dens,cmap=cmap,s=500,marker='s
 plt.xlim(-7,16)
 plt.ylim(0,360)
 plt.savefig('z_az_proj.png')
-plt.close()
-
-
-plt.contourf(min_z_grid,min_inc_grid,inc_z_dens_Grid.T,cmap=cmap,levels=100)
-plt.xlim(-7,16)
-plt.ylim(0,180)
-plt.savefig('ex.png')
 plt.close()
 
