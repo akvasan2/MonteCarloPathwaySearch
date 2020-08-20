@@ -34,7 +34,7 @@ def standardize_energy(energy_data):
 
 ####### procedure to obtain allowable frames for the next iteration################
 
-def allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,az_step,small_dev_inc,small_dev_az,z_i,indep=0):
+def allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,az_step,z_i,indep=0):
 
 	allowed_fr=[]
 	allowed_fr_z_bin={}
@@ -48,26 +48,18 @@ def allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,a
 
 	inc_top=prev_inc+inc_step
 	inc_bott=prev_inc-inc_step
-	inc_top_small=prev_inc+small_dev_inc
-	inc_bott_small=prev_inc-small_dev_inc
 
 ######### need to take care of periodicity effects for azimuthal angle
 
 	az_top=prev_az+az_step
 	az_top_per=az_top - 360 ###### if az_top is above 360, this variable shifts the top boundary to the periodic image
-	az_top_small=prev_az+small_dev_az
-	az_top_small_per=az_top_small-360
 
 	az_bott=prev_az-az_step
 	az_bott_per=360+az_bott ###### if az_bot is below 0, this variable shifts the bottom boundary to the periodic image
-	az_bott_small=prev_az-small_dev_az
-	az_bott_small_per=360+az_bott_small
 
 ################# Create the list of allowable frames using boundaries on angular space #######################
 
 ############## Create list using frames in the same z bin 
-        
-####### for the same bin, allow tumbling in either one angle space or any angle spaces at a time
 
 	for f in z_list[z_i]:
 		n_f=int(f)
@@ -102,54 +94,7 @@ def allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,a
 				allowed_fr=np.append(allowed_fr,n_f)
 				allowed_fr_z_bin[n_f]=z_i
 
-		########### Only move in one angle in one step ###############
-		############ Check inclination angle #############
-		elif (indep==1 and memory_array[n_f]==0):
-			if ( az_bott_small < 0 and next_inc>inc_bott and next_inc<inc_top and\
-				( ( next_az>az_bott_small_per and next_az<360) \
-				or (next_az<az_top_small and next_az > 0) ) ):
-
-				allowed_fr=np.append(allowed_fr,n_f)
-				allowed_fr_z_bin[n_f]=z_i
-
-			elif (az_top_small > 360 and next_inc>inc_bott and next_inc<inc_top and \
-				( (next_az < az_top_small_per and next_az > 0) \
-				or ( next_az > az_bott_small and next_az < 360 )) ):
-
-				allowed_fr=np.append(allowed_fr,n_f)
-				allowed_fr_z_bin[n_f]=z_i
-
-			elif (az_top_small < 360 and az_bott_small > 0 and next_inc>inc_bott and \
-				next_inc<inc_top and \
-				next_az>az_bott_small and next_az<az_top_small):
-
-				allowed_fr=np.append(allowed_fr,n_f)
-				allowed_fr_z_bin[n_f]=z_i
-
-			########## Check azimuthal angle #########
-
-			elif ( az_bott < 0 and next_inc>inc_bott_small and next_inc<inc_top_small and  \
-				( ( next_az>az_bott_per and next_az<360) \
-				or (next_az<az_top and next_az > 0) ) ):
-				allowed_fr=np.append(allowed_fr,n_f)
-				allowed_fr_z_bin[n_f]=z_i
-
-			elif (az_top > 360 and next_inc>inc_bott_small and next_inc<inc_top_small and \
-				( (next_az < az_top_per and next_az > 0) \
-				or ( next_az > az_bott and next_az < 360 )) ):
-
-				allowed_fr=np.append(allowed_fr,n_f)
-				allowed_fr_z_bin[n_f]=z_i
-
-			elif (az_top < 360 and az_bott > 0 and next_inc>inc_bott_small and \
-				next_inc<inc_top_small and \
-				next_az>az_bott and next_az<az_top):
-
-				allowed_fr=np.append(allowed_fr,n_f)
-				allowed_fr_z_bin[n_f]=z_i
-
-############ compute similar search for next z bin.  Use the same small_dev_inc and small_dev_az as inc_step and az_step 
-#############if you dont want to restrain angular motion in the next z bin 
+############ compute similar search for next z bin.  
 
 	for f in z_list[int(z_i+1)]:
 		n_f=int(f)
@@ -157,21 +102,21 @@ def allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,a
 		next_az=data[n_f][az_ind]
 
 		if(memory_array[n_f]==0):
-			if ( az_bott_small < 0 and next_inc>inc_bott_small and next_inc<inc_top_small and\
-				( ( next_az>az_bott_small_per and next_az<360) \
-				or (next_az<az_top_small and next_az > 0) ) ):
+			if ( az_bott < 0 and next_inc>inc_bott and next_inc<inc_top and\
+				( ( next_az>az_bott_per and next_az<360) \
+				or (next_az<az_top and next_az > 0) ) ):
 				allowed_fr=np.append(allowed_fr,n_f)
 				allowed_fr_z_bin[n_f]=z_i+1
 
-			elif (az_top_small > 360 and next_inc>inc_bott_small and next_inc<inc_top_small and \
-				( (next_az < az_top_small_per and next_az > 0) \
-				or ( next_az > az_bott_small and next_az < 360 )) ):
+			elif (az_top > 360 and next_inc>inc_bott and next_inc<inc_top and \
+				( (next_az < az_top_per and next_az > 0) \
+				or ( next_az > az_bott and next_az < 360 )) ):
 				allowed_fr=np.append(allowed_fr,n_f)
 				allowed_fr_z_bin[n_f]=z_i+1
 
-			elif (az_bott_small < 360 and az_bott_small > 0 and next_inc>inc_bott_small and \
-				next_inc<inc_top_small and \
-				next_az>az_bott_small and next_az<az_top_small):
+			elif (az_bott < 360 and az_bott > 0 and next_inc>inc_bott and \
+				next_inc<inc_top and \
+				next_az>az_bott and next_az<az_top):
 
 				allowed_fr=np.append(allowed_fr,n_f)
 				allowed_fr_z_bin[n_f]=z_i+1
@@ -180,7 +125,7 @@ def allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,a
 
 ############### Procedure to perform actual Monte Carlo Based Pathway Search #############################
 
-def Transition_Search(data,z_list,output_file,N_zbins,inc_step,az_step,small_dev_inc,small_dev_az,z_ind,inc_ind,az_ind,energy_ind,iteration):
+def Transition_Search(data,z_list,output_file,N_zbins,inc_step,az_step,z_ind,inc_ind,az_ind,energy_ind,iteration):
 
 ############### Define variables  and initialize arrays used in rest of code ##############################
 
@@ -214,7 +159,7 @@ def Transition_Search(data,z_list,output_file,N_zbins,inc_step,az_step,small_dev
 
 ################ Use above allowed_frames procedure to create allowed frames for next step of algorithm ##################
 
-		allowed_frames_proc=allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,az_step,small_dev_inc,small_dev_az,z_i,indep=0) 
+		allowed_frames_proc=allowed_frames(data,z_list,memory_array,prev_frame,inc_ind,az_ind,inc_step,az_step,z_i,indep=0) 
 		allowed_fr=allowed_frames_proc[0]
 		allowed_fr_z_bin=allowed_frames_proc[1]
 		allowed_fr_num=len(allowed_fr)
