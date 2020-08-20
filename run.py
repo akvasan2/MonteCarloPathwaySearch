@@ -30,19 +30,19 @@ top_z=np.max(data[:,0])
 bott_z=np.min(data[:,0])
 z_step=1 ### size of each z bin.  set here to 1
 
-############# Step size for each angle (use same small_dev_inc and small_dev_az if you dont want angle restriction to be smaller in next z bin of algorithm) ########
+############# Step size for each angle  ########
 inc_step=18
 az_step=18
-small_dev_inc=18
-small_dev_az=18
 
 ############number of runs and processors to use (running is done in parallel)###############################
 
-num=10000 
+num=10 
 
-proc = 16
+proc = 2
 
 ##############################################create z bins to use in algorithm#########################################################
+
+print("Creating z bins")
 
 z_num=int((top_z-bott_z)/z_step)
 N_zbins=z_num
@@ -57,13 +57,15 @@ for i in range(0,z_num):
 
 #################################### run algorithm using specified number of processors (proc) ###############################
 
+print("Starting MCPS")
+
 log=open(log_file,'w')
 
 try:
     d = datetime.now()
     starttime = datetime.now()
     log.write(f"Began process:{starttime} \n")
-    parallel_searches=Parallel(n_jobs=proc)(delayed(TS.Transition_Search)(data,z_list,output_file,N_zbins,inc_step,az_step,small_dev_inc,small_dev_az,z_ind,inc_ind,az_ind,energy_ind,itera) for itera in range(num-1))
+    parallel_searches=Parallel(n_jobs=proc)(delayed(TS.Transition_Search)(data,z_list,output_file,N_zbins,inc_step,az_step,z_ind,inc_ind,az_ind,energy_ind,itera) for itera in range(num-1))
     
     endtime = datetime.now()
     log.write(f"Finished process successfully {endtime}")
