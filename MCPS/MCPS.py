@@ -4,7 +4,7 @@
 ######################## Affiliation: University of Illinois at Urbana-Champaign########################
 ####################### Emails: akvasan2@illinois.edu, nhaloi2@illinois.edu, ######################
 
-############### Code description: Method to use docking data to obtain a pathway which is connected (has no large jumps)#############################
+############### Code description: Method to use data to obtain a pathway which is connected (has no large jumps)#############################
 
 ################################# Connected in: z, inclination angle, and azimuthal angle space.  The values for these variables need to be previously calculated.
 ################################# The z-coordinates are used as a primary coordinate to define the pathway progressioni while the angles restrict exploration of the path.
