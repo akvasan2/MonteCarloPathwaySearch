@@ -1,4 +1,6 @@
-structure         ../../../creating_dcds/system.psf 
+# initial system psf/pdb files
+
+structure         ../../../creating_dcds/system.psf
 coordinates       ../../../creating_dcds/system.pdb
 
 
