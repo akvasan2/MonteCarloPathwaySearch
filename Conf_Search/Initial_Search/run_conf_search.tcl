@@ -6,8 +6,8 @@ namespace import ::tcl::mathfunc::min
 
 ############  load psf, pdb files with protein and antibiotic ###########
 ##################################################################################
-set psf_file "system.psf"
-set pdb_file "system.pdb"
+set psf_file "../Input_Files/system.psf"
+set pdb_file "../Input_Files/system.pdb"
 mol load psf $psf_file pdb $pdb_file
 puts "loaded psf, pdb"
 
@@ -19,7 +19,6 @@ puts "loaded psf, pdb"
 
 ###### number of fibonacci points on sphere used to generate theta, phi angles
 
-###### number of fibonacci points
 set num 50 
 
 ###### head and tail atom names for vector used as reference when rotating drug
@@ -28,6 +27,7 @@ set head_name "C17"
 set tail_name "C16"
 
 ##### angle for self rotations around the vector
+
 set self_rot 90 
 
 ############# 2. Translation throughout protein to points on a grid ###############
@@ -36,7 +36,9 @@ set self_rot 90
 ############# Grid creation parameters
 
 #### pocket of protein the grid is centered on
+
 set pocket [atomselect top "protein and resid 16 40 42 82 132 102 106 113 114 115 116 117 118 119 120"] 
+
 #### Grid dimensions: positive and negative max distance from center
 
 set del_x_pos 8
@@ -49,6 +51,7 @@ set del_z_pos 20
 set del_z_neg 14
 
 #### Grid spacing in each dimension
+
 set x_spacing 1
 set y_spacing 1
 set z_spacing 1
@@ -61,10 +64,13 @@ set z_spacing 1
 
 ############# 1. Gen of multi orientations and 2. Translation ###############
 source conformational_search.tcl
-puts "explored conformations of the drug"
+
+puts "initial conformational search completed"
 
 ############ 3. Removal of ring piercings ##################################
-#source ring_piercing.tcl
+
+# source ring_piercing.tcl
+# put "removed ring piercings"
 
 ############# Save dcd files ###############################3
 set frame_number [molinfo top get numframes]

@@ -1,3 +1,6 @@
+#########Proc to recognize if a ring piercing occurred using geometry########
+#############################################################################
+
 proc intersect3d_raytriangle { p0 p1 v0 v1 v2 } {
 
 set u [vecsub $v1 $v0]
@@ -50,10 +53,12 @@ return 1
 
 }
 
-
+########Proc to run ring piercing script over pose data ############
+#####################################################################
 
 proc ring_pierce_overtime {frame c5 c11 c10 c9 c8 c7 c13 c14 c15 n3 c12 c6 s1} {
-# ring 1, trianle1 v0 v1 v2, trianle2 v0 v2 v3, .....
+# ring 1, trianle1 v0 v1 v2, triangle2 v0 v2 v3, .....
+###### Atoms in any ring of the antibiotic ##############
 $c5 frame $frame
 $c11 frame $frame
 $c10 frame $frame
@@ -67,6 +72,8 @@ $n3 frame $frame
 $c12 frame $frame
 $c6 frame $frame
 $s1 frame $frame
+
+####### Specify the atom content for each ring ###########
 
 # ring 1
 set v0 [measure center $c5]
@@ -105,8 +112,6 @@ dict set v0_dict 6 $v10
 dict set v0_dict 7 $v10
 dict set v0_dict 8 $v10
 
-
-
 ######### Storing V1 values ########
 # ring 1
 dict set v1_dict 0 $v1
@@ -140,28 +145,25 @@ dict set v2_dict 7 $v13
 dict set v2_dict 8 $v14
 
 
-#set ring1 [atomselect top "not protein and name C1 C2 C7 C8 C9 N10"]
-
 set protein [atomselect top "protein and within 2 of (not protein and name C5 C11 C10 C9 C8 C7 C13 C14 C15 N3 C12 C6 S1)" frame $frame]
 set index [$protein get index]
 $protein delete
 set break_value 0
 
+############ For each pose determine if a protein causes a ring piercing at that spot ################### 
 
 foreach i $index {
         set ind_atom [atomselect top "index $i" frame $frame]
         set bonds [lindex [$ind_atom getbonds] 0]
-        #puts "previous: $i $bonds"
         set bonds_close [atomselect top "index $bonds and within 2 of (not protein and name C5 C11 C10 C9 C8 C7 C13 C14 C15 N3 C12 C6 S1)" frame $frame]
         set bonds_closelist [$bonds_close get index]
-        #puts "later: $bonds_closelist"
         $bonds_close delete
-        #puts [lindex $bonds 0]
+        
         set p0 [measure center $ind_atom]
         $ind_atom delete
 
         foreach b $bonds_closelist {
-                #puts $b
+       
                 set b_atom [atomselect top "index $b" frame $frame]
                 set p1 [measure center $b_atom]
                 $b_atom delete
@@ -171,9 +173,6 @@ foreach i $index {
                         set v1_ind [dict get $v1_dict $t]
                         set v2_ind [dict get $v2_dict $t]
                         set intersect [intersect3d_raytriangle $p0 $p1 $v0_ind $v1_ind $v2_ind]
-                        #puts "$intersect $i $b"
-                        #set intersect [intersect3d_raytriangle $p0 $p1 $v0 $v3 $v4]
-                        #puts "$intersect $i $b \n"
                         if {$intersect == 1} {
                                 puts "Broke triangles in frame $frame and tri $t"
                                 return 1
@@ -184,12 +183,6 @@ foreach i $index {
 }
 return 0
 }
-
-
-
-mol load psf system.psf
-mol addfile dcds_small_XY/all.dcd waitfor all
-
 
 #C5 C11 C10 C9 C8 C7 C13 C14 C15 N3 C12 C6 S1
 set c5 [atomselect top "not protein and name C5"]
@@ -216,11 +209,3 @@ while {$i < [molinfo top get numframes]} {
 		}
 }
 
-animate write dcd dcds_small_XY/dcds\start_1.dcd beg 0 end 100000 waitfor all
-animate write dcd dcds_small_XY/dcds\start_2.dcd beg 100001 end 200000 waitfor all
-animate write dcd dcds_small_XY/dcds\start_3.dcd beg 200001 end 300000 waitfor all
-animate write dcd dcds_small_XY/dcds\start_4.dcd beg 300001 end 400000 waitfor all
-animate write dcd dcds_small_XY/dcds\start_5.dcd beg 400001 end 500000 waitfor all
-animate write dcd dcds_small_XY/dcds\start_6.dcd beg 500001 end 600000 waitfor all
-animate write dcd dcds_small_XY/dcds\start_7.dcd beg 600001 end 700000 waitfor all
-animate write dcd dcds_small_XY/dcds\start_8.dcd beg 700001 end -1 waitfor all
