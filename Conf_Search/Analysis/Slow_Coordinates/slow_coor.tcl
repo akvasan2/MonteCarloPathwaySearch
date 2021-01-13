@@ -1,24 +1,41 @@
-proc drug_vec { frame } {
-    set C22 [atomselect top "not protein and name C17" frame $frame]
-    set C7 [atomselect top "not protein and name C16" frame $frame]
-    set tv [measure center $C22]
-    set lv [measure center $C7]
+###### Script to determine z, inclination, and azimuthal angles, which are slow coordiantes for antibiotic permeation
+
+proc drug_vec { frame head_name tail_name } {
+    set head [atomselect top "not protein and name $head_name" frame $frame]
+    set tail [atomselect top "not protein and name $tail_name" frame $frame]
+    set tv [measure center $head]
+    set lv [measure center $tail]
     return [vecnorm [vecsub $tv $lv]]
 }
 
-set file [open "angles_z.dat" w]
-for {set j 1} {$j < 9} {incr j} {
-mol load psf ../../creating_dcds/system.psf
-mol addfile ../../minimize_GBIS_small_XY/minimize_output/Min_200/dcdsstart_$j.dcd waitfor all
+
+##### parameters to run calculations ######
+
+### vector head and tail
+set head_name "C17"
+set tail_name "C16"
+set output_file "slow_coor.dat"
+### total number of pose dcds
+set num_dcds 8
+
+set file [open $output_file w]
+
+##### Running calculation ############ 
+
+for {set j 1} {$j <= $num_dcds} {incr j} {
+mol load psf ../../Input_Files/system.psf
+mol addfile ../../Minimization/minimize_output/dcdsstart_$j.dcd waitfor all
 
 set sel_all [atomselect top "not protein"]
 
 set nf [molinfo top get numframes]
 
-
 for {set i 0} {$i < $nf} {incr i} {
-	set drug_vec [drug_vec $i]
+	set drug_vec [ drug_vec $i $head_name $tail_name ]
+	#### evaluate theta and phi angles using geometrical relations
 	set theta [expr {acos ([ lindex $drug_vec 2])}]
+	### Since phi can be between 0 and 2pi in radians need to apply this "trick"
+
 	if {[lindex $drug_vec 0] < 0} {
 	set phi [expr {atan ([lindex $drug_vec 1]/[lindex $drug_vec 0]) + 3.14159265}]
 	puts $phi
