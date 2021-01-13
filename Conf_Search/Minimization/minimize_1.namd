@@ -1,0 +1,57 @@
+#######Initial structure##########
+structure         ../Input_Files/system.psf 
+coordinates       ../Input_Files/system.pdb
+
+temperature     0
+########output params###########
+outputname      minimize_output/dcdsstart_1
+binaryoutput    no
+dcdfile		minimize_output/dcdsstart_1.dcd
+DCDfreq		200
+
+########integrator params######
+timestep        1.0
+nonbondedFreq       2
+fullElectFrequency  4
+
+#######force field params######
+exclude         scaled1-4
+1-4scaling      1.0
+switching       on
+switchdist      18.0
+cutoff          20.0
+pairlistdist    22.0
+stepspercycle   4
+
+######Parameters for the system.  Include these files in ../../Parameters #######
+paraTypeCharmm	    on
+parameters             ../Parameters/par_all36m_prot.prm
+parameters             ../Parameters/par_all36_lipid.prm
+parameters             ../Parameters/toppar_water_ions.str
+parameters             ../Parameters/par_all36_cgenff.prm
+parameters             ../Parameters/carb.str
+
+###### Fix side chains of protein#######
+
+fixedAtoms     on
+fixedAtomsFile  ../Input_Files/fix.pdb
+fixedAtomsCol        O
+
+########Turn on/off implicit solvent during minimization#######
+if {1} {
+# GBIS: Generalized born implicit solvent
+GBIS on 
+ionConcentration 0.30
+SASA off
+}
+
+########Run minimization#######
+set ts 0
+
+coorfile open dcd ../Initial_Search/dcds/dcdsstart_1.dcd ## dcd file with poses stored earlier in iniitial_search
+
+while { ![coorfile read] } {
+    firstTimestep $ts
+    minimize 200 # minimization time
+}
+coorfile close
