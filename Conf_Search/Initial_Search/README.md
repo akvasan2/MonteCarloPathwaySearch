@@ -11,7 +11,7 @@ About:
 		2. Placing the drug in all possible positions within the protein at points along a grid
 			Removes any clases between drug and protein
 	
-	A third protocol is called to remove ring piercings
+		A third protocol is then called to remove ring piercings
 
 Required files:
 	
