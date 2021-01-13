@@ -48,10 +48,12 @@ SASA off
 ########Run minimization#######
 set ts 0
 
-coorfile open dcd ../Initial_Search/dcds/dcdsstart_1.dcd ## dcd file with poses stored earlier in iniitial_search
+## dcd file with poses stored earlier in initial_search
+coorfile open dcd ../Initial_Search/dcds/dcdsstart_1.dcd 
 
 while { ![coorfile read] } {
-    firstTimestep $ts
-    minimize 200 # minimization time
+    firstTimestep $ts 
+    # minimization time	
+    minimize 200 
 }
 coorfile close

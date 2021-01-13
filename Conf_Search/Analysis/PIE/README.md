@@ -9,19 +9,19 @@ About:
 
 Required files:
 	
-	structure and coordinate (e.g. psf and pdb) files stored in ../../Input_Files
+	Structure and coordinate (e.g. psf and pdb) files stored in ../../Input_Files
 	
-	parameter files: stored in ../../Parameters
+	Parameter files: stored in ../../Parameters
 	
 	pairInteractionFile (PIE.pdb):specifying atoms of the pair of molecules calculating PIE for
 	
 		B column of each atom of the two molecules should equal 1 or 2 
 	
-	all minimized pose dcd files stored in ../../Minimization/minimize_output 
+	All minimized pose dcd files stored in ../../Minimization/minimize_output 
 
 Important Parameters to specify in pie_1.namd: 
 	
-	structure and coordinate files 
+	Structure and coordinate files 
 		
 		(e.g. ../../Input_Files/system.psf and ../../Input_Files/system.pdb)
 	

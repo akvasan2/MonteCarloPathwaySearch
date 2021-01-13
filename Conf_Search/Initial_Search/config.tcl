@@ -51,7 +51,6 @@ set z_spacing 1
 ############# 3. Ring piercings ###############
 
 ### Number of  rings in system
-
 set num_rings 3
 
 ### manually set list of atom names for each ring in system
@@ -59,12 +58,4 @@ set num_rings 3
 dict set Ring_names_dict 0 {C1 C2 C3 C4 C5 C6}
 dict set Ring_names_dict 1 {C11 C12 C13 S1 N2}
 dict set Ring_names_dict 2 {C9 C10 C11 N2}
-
-#set Ring_Names {}
-#for {set ring 0} {$ring < $num_rings} {incr ring} {
-#
-#	lappend Ring_Names [dict get $Ring_names_dict $ring]
-#}
-
-
 
