@@ -9,10 +9,13 @@ This protocol generates data that is crucial to running the MCPS algorithm to de
 
 The order of steps to use this protocol are:
 	
-	1. An exhaustive initial search of all poses for the antibiotic.  Scripts found in Initial_Search/
-	2. Minimization of each pose.  Scripts found in Minimization/ 
-	3. Evaluation of pair interaction energy. Scripts found in Analysis/PIE/
-	4. Evaluation of slow coordinates of the drug.  Scripts found in Analysis/Slow_Coordinates/ 
+1. An exhaustive initial search of all poses for the antibiotic.  Scripts found in Initial_Search/
+
+2. Minimization of each pose.  Scripts found in Minimization/ 
+
+3. Evaluation of pair interaction energy. Scripts found in Analysis/PIE/
+
+4. Evaluation of slow coordinates of the drug.  Scripts found in Analysis/Slow_Coordinates/ 
 
 Input_Files and Parameters directories include structures and parameters needed to run these scripts, respectively.
 
