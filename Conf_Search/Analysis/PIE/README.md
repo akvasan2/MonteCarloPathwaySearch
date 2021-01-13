@@ -1,6 +1,5 @@
-===============================================================================
+
 Evaluate Pair Interaction Energy (PIE) for each minimized pose
-===============================================================================
 
 About:
 	Scripts used to analyze the pair interaction energy for each pose which was
