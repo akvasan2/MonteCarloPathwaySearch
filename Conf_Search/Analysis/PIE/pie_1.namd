@@ -1,0 +1,54 @@
+#######Initial structure##########
+structure         ../../Input_Files/system.psf 
+coordinates       ../../Input_Files/system.pdb
+
+temperature     0
+# output params
+outputname      PIE_output/dcdsstart_1
+binaryoutput    no
+
+# integrator params
+timestep        1.0
+
+# force field params
+exclude         scaled1-4
+1-4scaling      1.0
+switching       on
+switchdist      10.0
+cutoff          12.0
+pairlistdist    14.0
+stepspercycle   1
+
+######Parameters for the system.  Include these files in ../../Parameters #######
+
+paraTypeCharmm	    on
+parameters             ../../Parameters/par_all36m_prot.prm
+parameters             ../../Parameters/par_all36_lipid.prm
+parameters             ../../Parameters/toppar_water_ions.str
+parameters             ../../Parameters/par_all36_cgenff.prm
+parameters             ../../Parameters/carb.str
+
+#### provide dielectric to be used in calculation
+dielectric               78.5
+
+pairInteraction		on
+
+###  include PIE.pdb structure file with 1 and 2 in B columns of each member of the pair
+pairInteractionFile	../../Input_Files/PIE.pdb
+pairInteractionCol	B
+pairInteractionGroup1	1
+pairInteractionGroup2	2
+
+########Run minimization#######
+set ts 1
+
+#### dcd file with all minimized poses
+coorfile open dcd ../../Minimization/minimize_output/dcdsstart_1.dcd
+
+while { ![coorfile read] } {
+    firstTimestep $ts
+    run 0
+    incr ts 1
+}
+
+coorfile close
