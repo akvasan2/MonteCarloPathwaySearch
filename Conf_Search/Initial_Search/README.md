@@ -15,7 +15,7 @@ About:
 
 Required files:
 	
-	Structure and coordiante files (i.e. psf, pdb) files stored as ../../Input_Files/system.psf
+	Structure and coordiante files (i.e. psf, pdb) files stored as ../Input_Files/system.psf and ../Input_Files/system.pdb
 
 Important Parameters to specify in config.tcl: 
 	
