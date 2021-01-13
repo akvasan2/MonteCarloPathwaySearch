@@ -4,7 +4,7 @@ coordinates       ../../Input_Files/system.pdb
 
 temperature     0
 # output params
-outputname      PIE_output/dcdsstart_1
+outputname      raw_output/dcdsstart_1
 binaryoutput    no
 
 # integrator params

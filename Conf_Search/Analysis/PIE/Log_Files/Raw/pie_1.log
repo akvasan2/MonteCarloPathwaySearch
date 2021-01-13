@@ -1,0 +1,803 @@
+Using binaries in /Projects/namd2/bin/current/Linux64-multicore
+Charm++: standalone mode (not using charmrun)
+Charm++> Running in Multicore mode: 3 threads (PEs)
+Charm++> Using recursive bisection (scheme 3) for topology aware partitions
+Converse/Charm++ Commit ID: v6.10.2-0-g7bf00fa-namd-charm-6.10.2-build-2020-Aug-05-556
+Warning> Randomization of virtual memory (ASLR) is turned on in the kernel, thread migration may not work! Run 'echo 0 > /proc/sys/kernel/randomize_va_space' as root to disable it, or try running with '+isomalloc_sync'.
+CharmLB> Load balancer assumes all CPUs are same.
+Charm++> Running on 1 hosts (2 sockets x 4 cores x 2 PUs = 16-way SMP)
+Charm++> cpu topology info is gathered in 0.001 seconds.
+Info: NAMD 2.14 for Linux-x86_64-multicore
+Info: 
+Info: Please visit http://www.ks.uiuc.edu/Research/namd/
+Info: for updates, documentation, and support information.
+Info: 
+Info: Please cite Phillips et al., J. Chem. Phys. 153:044130 (2020) doi:10.1063/5.0014475
+Info: in all publications reporting results obtained with NAMD.
+Info: 
+Info: Based on Charm++/Converse 61002 for multicore-linux-x86_64-iccstatic
+Info: Built Mon Aug 24 10:08:36 CDT 2020 by jim on belfast.ks.uiuc.edu
+Info: 1 NAMD  2.14  Linux-x86_64-multicore  3    detroit.ks.uiuc.edu  akvasan2
+Info: Running on 3 processors, 1 nodes, 1 physical nodes.
+Info: CPU topology information available.
+Info: Charm++/Converse parallel runtime startup completed at 0.00842876 s
+CkLoopLib is used in SMP with simple dynamic scheduling (converse-level notification)
+Info: 222.438 MB of memory in use based on /proc/self/stat
+Info: Configuration file is pie_1.namd
+Info: Working in the current directory /Scr/akvasan2/OmpF_Drug_Permeation/MCPS/For_Github/ex/Conf_Search/Analysis/PIE
+TCL: Suspending until startup complete.
+Info: SIMULATION PARAMETERS:
+Info: TIMESTEP               1
+Info: NUMBER OF STEPS        0
+Info: STEPS PER CYCLE        1
+Info: LOAD BALANCER  Centralized
+Info: LOAD BALANCING STRATEGY  New Load Balancers -- DEFAULT
+Info: LDB PERIOD             200 steps
+Info: FIRST LDB TIMESTEP     5
+Info: LAST LDB TIMESTEP     -1
+Info: LDB BACKGROUND SCALING 1
+Info: HOM BACKGROUND SCALING 1
+Info: MIN ATOMS PER PATCH    40
+Info: INITIAL TEMPERATURE    0
+Info: CENTER OF MASS MOVING INITIALLY? NO
+Info: DIELECTRIC             78.5
+Info: EXCLUDE                SCALED ONE-FOUR
+Info: 1-4 ELECTROSTATICS SCALED BY 1
+Info: MODIFIED 1-4 VDW PARAMETERS WILL BE USED
+Info: NO DCD TRAJECTORY OUTPUT
+Info: NO EXTENDED SYSTEM TRAJECTORY OUTPUT
+Info: NO VELOCITY DCD OUTPUT
+Info: NO FORCE DCD OUTPUT
+Info: OUTPUT FILENAME        raw_output/dcdsstart_1
+Info: NO RESTART FILE
+Info: SWITCHING ACTIVE
+Info: SWITCHING ON           10
+Info: SWITCHING OFF          12
+Info: PAIRLIST DISTANCE      14
+Info: PAIRLIST SHRINK RATE   0.01
+Info: PAIRLIST GROW RATE     0.01
+Info: PAIRLIST TRIGGER       0.3
+Info: PAIRLISTS PER CYCLE    2
+Info: PAIRLISTS ENABLED
+Info: MARGIN                 0
+Info: HYDROGEN GROUP CUTOFF  2.5
+Info: PATCH DIMENSION        16.5
+Info: CROSSTERM ENERGY INCLUDED IN DIHEDRAL
+Info: TIMING OUTPUT STEPS    10
+Info: PAIR INTERACTION CALCULATIONS ACTIVE
+Info: USING FLAG 1 FOR GROUP 1
+Info: USING FLAG 2 FOR GROUP 2
+Info: USING VERLET I (r-RESPA) MTS SCHEME.
+Info: C1 SPLITTING OF LONG RANGE ELECTROSTATICS
+Info: PLACING ATOMS IN PATCHES BY HYDROGEN GROUPS
+Info: RANDOM NUMBER SEED     1610574105
+Info: USE HYDROGEN BONDS?    NO
+Info: COORDINATE PDB         ../../Input_Files/system.pdb
+Info: STRUCTURE FILE         ../../Input_Files/system.psf
+Info: PARAMETER file: CHARMM format! 
+Info: PARAMETERS             ../../Parameters/par_all36m_prot.prm
+Info: PARAMETERS             ../../Parameters/par_all36_lipid.prm
+Info: PARAMETERS             ../../Parameters/toppar_water_ions.str
+Info: PARAMETERS             ../../Parameters/par_all36_cgenff.prm
+Info: PARAMETERS             ../../Parameters/carb.str
+Info: USING ARITHMETIC MEAN TO COMBINE L-J SIGMA PARAMETERS
+Info: SKIPPING rtf SECTION IN STREAM FILE
+Info: SKIPPING rtf SECTION IN STREAM FILE
+Info: SUMMARY OF PARAMETERS:
+Info: 695 BONDS
+Info: 2079 ANGLES
+Info: 4877 DIHEDRAL
+Info: 165 IMPROPER
+Info: 6 CROSSTERM
+Info: 252 VDW
+Info: 3 VDW_PAIRS
+Info: 0 NBTHOLE_PAIRS
+Info: TIME FOR READING PSF FILE: 0.596109
+Info: Reading pdb file ../../Input_Files/system.pdb
+Info: TIME FOR READING PDB FILE: 0.00520681
+Info: 
+Info: To read pairInteractiondata from file: ../../Input_Files/PIE.pdb
+Info: To read pairInteractionflag data from column: 5
+Info: ****************************
+Info: STRUCTURE SUMMARY:
+Info: 5122 ATOMS
+Info: 5180 BONDS
+Info: 9227 ANGLES
+Info: 13500 DIHEDRALS
+Info: 940 IMPROPERS
+Info: 339 CROSSTERMS
+Info: 0 EXCLUSIONS
+Info: PAIR INTERACTION GROUP 1 CONTAINS 5080 ATOMS
+Info: PAIR INTERACTION GROUP 2 CONTAINS 42 ATOMS
+Info: 15363 DEGREES OF FREEDOM
+Info: 2656 HYDROGEN GROUPS
+Info: 4 ATOMS IN LARGEST HYDROGEN GROUP
+Info: 2656 MIGRATION GROUPS
+Info: 4 ATOMS IN LARGEST MIGRATION GROUP
+Info: TOTAL MASS = 37492.9 amu
+Info: TOTAL CHARGE = -11 e
+Info: *****************************
+Info: 
+Info: Entering startup at 0.735495 s, 234.844 MB of memory in use
+Info: Startup phase 0 took 7.1179e-05 s, 234.844 MB of memory in use
+Info: ADDED 0 IMPLICIT EXCLUSIONS
+Info: Startup phase 1 took 0.0053234 s, 236.848 MB of memory in use
+Info: NONBONDED TABLE R-SQUARED SPACING: 0.0625
+Info: NONBONDED TABLE SIZE: 769 POINTS
+Info: ABSOLUTE IMPRECISION IN FAST TABLE ENERGY: 3.38813e-21 AT 11.8295
+Info: RELATIVE IMPRECISION IN FAST TABLE ENERGY: 5.45773e-14 AT 11.9138
+Info: ABSOLUTE IMPRECISION IN FAST TABLE FORCE: 8.47033e-22 AT 11.9138
+Info: RELATIVE IMPRECISION IN FAST TABLE FORCE: 1.6856e-15 AT 11.9138
+Info: INCONSISTENCY IN FAST TABLE ENERGY VS FORCE: 0.000290274 AT 0.251946
+Info: ABSOLUTE IMPRECISION IN VDWA TABLE ENERGY: 9.86076e-32 AT 11.8295
+Info: RELATIVE IMPRECISION IN VDWA TABLE ENERGY: 6.75473e-14 AT 11.9138
+Info: ABSOLUTE IMPRECISION IN VDWA TABLE FORCE: 4.62223e-32 AT 11.9138
+Info: RELATIVE IMPRECISION IN VDWA TABLE FORCE: 2.12237e-15 AT 11.9138
+Info: INCONSISTENCY IN VDWA TABLE ENERGY VS FORCE: 0.0040507 AT 0.251946
+Info: ABSOLUTE IMPRECISION IN VDWB TABLE ENERGY: 4.1359e-25 AT 11.8295
+Info: RELATIVE IMPRECISION IN VDWB TABLE ENERGY: 7.56853e-15 AT 11.9138
+Info: ABSOLUTE IMPRECISION IN VDWB TABLE FORCE: 3.87741e-26 AT 11.9138
+Info: RELATIVE IMPRECISION IN VDWB TABLE FORCE: 5.97409e-16 AT 11.9138
+Info: INCONSISTENCY IN VDWB TABLE ENERGY VS FORCE: 0.00150189 AT 0.251946
+Info: Startup phase 2 took 0.00233373 s, 238.863 MB of memory in use
+Info: Startup phase 3 took 5.0438e-05 s, 238.863 MB of memory in use
+Info: Startup phase 4 took 6.0681e-05 s, 238.863 MB of memory in use
+Info: Startup phase 5 took 4.2834e-05 s, 238.863 MB of memory in use
+Info: ORIGINAL ATOMS MINMAX IS -41.032 -30.723 -22.516  16.433 20.26 36.497
+Info: ADJUSTED ATOMS MINMAX IS -38.2357 -26.2065 -16.0337  -3.41825 14.8785 29.3637
+Info: PATCH GRID IS 3 BY 3 BY 3
+Info: PATCH GRID IS 1-AWAY BY 1-AWAY BY 1-AWAY
+Info: REMOVING COM VELOCITY 0 0 0
+Info: LARGEST PATCH (22) HAS 372 ATOMS
+Info: TORUS A SIZE 1 USING 0
+Info: TORUS B SIZE 1 USING 0
+Info: TORUS C SIZE 1 USING 0
+Info: TORUS MINIMAL MESH SIZE IS 1 BY 1 BY 1
+Info: Placed 100% of base nodes on same physical node as patch
+Info: Startup phase 6 took 0.0024554 s, 238.863 MB of memory in use
+Info: Startup phase 7 took 5.6745e-05 s, 238.863 MB of memory in use
+Info: Startup phase 8 took 4.5029e-05 s, 238.863 MB of memory in use
+Info: Startup phase 9 took 4.3648e-05 s, 238.863 MB of memory in use
+Info: Startup phase 10 took 4.3224e-05 s, 238.863 MB of memory in use
+Info: Startup phase 11 took 0.000112172 s, 238.863 MB of memory in use
+LDB: Central LB being created...
+Info: Startup phase 12 took 7.9083e-05 s, 238.863 MB of memory in use
+Info: CREATING 185 COMPUTE OBJECTS
+Info: useSync: 0 useProxySync: 0
+Info: Startup phase 13 took 0.000448963 s, 238.863 MB of memory in use
+Info: Startup phase 14 took 5.667e-05 s, 238.863 MB of memory in use
+Info: Startup phase 15 took 0.000165385 s, 239.863 MB of memory in use
+Info: Finished startup at 0.746884 s, 239.863 MB of memory in use
+
+dcdplugin) detected standard 32-bit DCD file of native endianness
+dcdplugin) CHARMM format DCD file (also NAMD 2.1 and later)
+Info: Coordinate file ../../Minimization/minimize_output/dcdsstart_1.dcd opened for reading.
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 1
+TCL: Running for 0 steps
+ENERGY:       1         0.0000         0.0000         0.0000         0.0000              1.3943       -23.0611         0.0000         0.0000         0.0000            -21.6668         0.0000       -21.6668       -21.6668         0.0000
+
+PAIR INTERACTION: STEP: 1 VDW_FORCE:        -14.8802        -3.4101         1.0350 ELECT_FORCE:          0.0801        -0.1078         0.2790
+LDB: ============= START OF LOAD BALANCING ============== 0.753958
+LDB: ============== END OF LOAD BALANCING =============== 0.753979
+Info: useSync: 0 useProxySync: 0
+LDB: =============== DONE WITH MIGRATION ================ 0.754044
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 2
+TCL: Running for 0 steps
+ENERGY:       2         0.0000         0.0000         0.0000         0.0000              0.3321       -10.4189         0.0000         0.0000         0.0000            -10.0868         0.0000       -10.0868       -10.0868         0.0000
+
+PAIR INTERACTION: STEP: 2 VDW_FORCE:        -34.6824        19.7621        14.2329 ELECT_FORCE:         -0.8306        -0.0534        -0.0237
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 3
+TCL: Running for 0 steps
+ENERGY:       3         0.0000         0.0000         0.0000         0.0000              0.6096       -22.0544         0.0000         0.0000         0.0000            -21.4448         0.0000       -21.4448       -21.4448         0.0000
+
+PAIR INTERACTION: STEP: 3 VDW_FORCE:         -7.8276        -0.4139         3.5504 ELECT_FORCE:         -0.6055         0.0738         0.0875
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 4
+TCL: Running for 0 steps
+ENERGY:       4         0.0000         0.0000         0.0000         0.0000              0.6419       -12.8351         0.0000         0.0000         0.0000            -12.1932         0.0000       -12.1932       -12.1932         0.0000
+
+PAIR INTERACTION: STEP: 4 VDW_FORCE:        -59.9060       -13.9740        -7.0518 ELECT_FORCE:         -0.4062         0.1791         0.1656
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 5
+TCL: Running for 0 steps
+ENERGY:       5         0.0000         0.0000         0.0000         0.0000             -1.1588         8.0446         0.0000         0.0000         0.0000              6.8859         0.0000         6.8859         6.8859         0.0000
+
+PAIR INTERACTION: STEP: 5 VDW_FORCE:        -59.7225        -1.1730        80.0258 ELECT_FORCE:         -0.8985         0.0704         0.1131
+LDB: ============= START OF LOAD BALANCING ============== 0.771889
+LDB: Largest compute 13 load 0.000883 is 7.5% of average load 0.011780
+LDB: Average compute 0.000138 is 1.2% of average load 0.011780
+LDB: Partitioning computes with target load 0.001178
+LDB: Increased migratable compute count from 185 to 185
+LDB: Largest unpartitionable compute is 0.000000
+LDB: ============== END OF LOAD BALANCING =============== 0.771986
+Info: useSync: 0 useProxySync: 0
+LDB: =============== DONE WITH MIGRATION ================ 0.772176
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 6
+TCL: Running for 0 steps
+ENERGY:       6         0.0000         0.0000         0.0000         0.0000             -1.0492       -20.5694         0.0000         0.0000         0.0000            -21.6186         0.0000       -21.6186       -21.6186         0.0000
+
+PAIR INTERACTION: STEP: 6 VDW_FORCE:        -12.3302         0.6316        -4.2987 ELECT_FORCE:         -0.8687         0.1663         0.1290
+LDB: ============= START OF LOAD BALANCING ============== 0.775757
+LDB: ============== END OF LOAD BALANCING =============== 0.775772
+Info: useSync: 0 useProxySync: 0
+LDB: =============== DONE WITH MIGRATION ================ 0.775828
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 7
+TCL: Running for 0 steps
+ENERGY:       7         0.0000         0.0000         0.0000         0.0000              0.6907       244.1373         0.0000         0.0000         0.0000            244.8280         0.0000       244.8280       244.8280         0.0000
+
+PAIR INTERACTION: STEP: 7 VDW_FORCE:       -591.9163      -170.3153        32.1537 ELECT_FORCE:         -0.1201         0.3011         0.1089
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 8
+TCL: Running for 0 steps
+ENERGY:       8         0.0000         0.0000         0.0000         0.0000              0.2177       -20.4979         0.0000         0.0000         0.0000            -20.2803         0.0000       -20.2803       -20.2803         0.0000
+
+PAIR INTERACTION: STEP: 8 VDW_FORCE:         -5.2876         2.6597        -1.1379 ELECT_FORCE:         -0.5055         0.0777         0.2828
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 9
+TCL: Running for 0 steps
+ENERGY:       9         0.0000         0.0000         0.0000         0.0000              0.9456       -17.1719         0.0000         0.0000         0.0000            -16.2263         0.0000       -16.2263       -16.2263         0.0000
+
+PAIR INTERACTION: STEP: 9 VDW_FORCE:        -24.1808        -5.2946        27.6024 ELECT_FORCE:         -0.0506        -0.0228         0.2816
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 10
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      10         0.0000         0.0000         0.0000         0.0000             -0.2141       -19.8821         0.0000         0.0000         0.0000            -20.0962         0.0000       -20.0962       -20.0962         0.0000
+
+PAIR INTERACTION: STEP: 10 VDW_FORCE:         -8.8582         5.9049         2.6312 ELECT_FORCE:         -0.7968         0.1280         0.2098
+LDB: ============= START OF LOAD BALANCING ============== 0.79098
+LDB: Largest compute 13 load 0.000884 is 8.2% of average load 0.010807
+LDB: Average compute 0.000130 is 1.2% of average load 0.010807
+LDB: TIME 0.791059 LOAD: AVG 0.0108073 MAX 0.014846  PROXIES: TOTAL 21 MAXPE 9 MAXPATCH 2 None MEM: 242.371 MB
+LDB: TIME 0.791147 LOAD: AVG 0.0108073 MAX 0.0129652  PROXIES: TOTAL 34 MAXPE 15 MAXPATCH 2 TorusLB MEM: 242.371 MB
+LDB: ============== END OF LOAD BALANCING =============== 0.791273
+Info: useSync: 0 useProxySync: 0
+LDB: =============== DONE WITH MIGRATION ================ 0.791642
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 11
+TCL: Running for 0 steps
+ENERGY:      11         0.0000         0.0000         0.0000         0.0000             -2.0770       -12.3869         0.0000         0.0000         0.0000            -14.4640         0.0000       -14.4640       -14.4640         0.0000
+
+PAIR INTERACTION: STEP: 11 VDW_FORCE:         19.1587       -44.2403         6.1578 ELECT_FORCE:         -1.1636         0.3400        -0.0828
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 12
+TCL: Running for 0 steps
+ENERGY:      12         0.0000         0.0000         0.0000         0.0000             -0.1096        -5.7676         0.0000         0.0000         0.0000             -5.8771         0.0000        -5.8771        -5.8771         0.0000
+
+PAIR INTERACTION: STEP: 12 VDW_FORCE:        -28.9458        24.0088        15.0934 ELECT_FORCE:         -0.9349        -0.0480        -0.1310
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 13
+TCL: Running for 0 steps
+ENERGY:      13         0.0000         0.0000         0.0000         0.0000              0.5494       -23.7836         0.0000         0.0000         0.0000            -23.2342         0.0000       -23.2342       -23.2342         0.0000
+
+PAIR INTERACTION: STEP: 13 VDW_FORCE:         -8.5445        -1.3703        -0.4733 ELECT_FORCE:         -0.6005         0.1199         0.0789
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 14
+TCL: Running for 0 steps
+ENERGY:      14         0.0000         0.0000         0.0000         0.0000              0.5046       -12.7579         0.0000         0.0000         0.0000            -12.2533         0.0000       -12.2533       -12.2533         0.0000
+
+PAIR INTERACTION: STEP: 14 VDW_FORCE:        -39.6274       -29.0280       -11.2259 ELECT_FORCE:         -0.4820         0.2086         0.1980
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 15
+TCL: Running for 0 steps
+ENERGY:      15         0.0000         0.0000         0.0000         0.0000             -0.7032       -21.0207         0.0000         0.0000         0.0000            -21.7239         0.0000       -21.7239       -21.7239         0.0000
+
+PAIR INTERACTION: STEP: 15 VDW_FORCE:        -12.8356        -3.1900        -5.9656 ELECT_FORCE:         -0.9244         0.0659         0.0343
+LDB: ============= START OF LOAD BALANCING ============== 0.809461
+LDB: Largest compute 13 load 0.001225 is 8.9% of average load 0.013842
+LDB: Average compute 0.000162 is 1.2% of average load 0.013842
+LDB: TIME 0.809545 LOAD: AVG 0.0138418 MAX 0.0158887  PROXIES: TOTAL 21 MAXPE 9 MAXPATCH 2 None MEM: 242.523 MB
+LDB: TIME 0.80959 LOAD: AVG 0.0138418 MAX 0.0158887  PROXIES: TOTAL 34 MAXPE 15 MAXPATCH 2 RefineTorusLB MEM: 242.523 MB
+LDB: TIME 0.809657 LOAD: AVG 0.0138418 MAX 0.01404  PROXIES: TOTAL 34 MAXPE 15 MAXPATCH 2 RefineTorusLB MEM: 242.523 MB
+LDB: ============== END OF LOAD BALANCING =============== 0.809732
+Info: useSync: 0 useProxySync: 0
+LDB: =============== DONE WITH MIGRATION ================ 0.809944
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 16
+TCL: Running for 0 steps
+ENERGY:      16         0.0000         0.0000         0.0000         0.0000              0.1771       -21.7101         0.0000         0.0000         0.0000            -21.5330         0.0000       -21.5330       -21.5330         0.0000
+
+PAIR INTERACTION: STEP: 16 VDW_FORCE:         -6.2262         1.9100        -0.1024 ELECT_FORCE:         -0.5922         0.1595         0.2921
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 17
+TCL: Running for 0 steps
+ENERGY:      17         0.0000         0.0000         0.0000         0.0000             -2.0409        -8.7510         0.0000         0.0000         0.0000            -10.7919         0.0000       -10.7919       -10.7919         0.0000
+
+PAIR INTERACTION: STEP: 17 VDW_FORCE:         42.6831       -42.2448       -13.8936 ELECT_FORCE:         -1.3575         0.3290         0.2164
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 18
+TCL: Running for 0 steps
+ENERGY:      18         0.0000         0.0000         0.0000         0.0000              0.9994       -15.8869         0.0000         0.0000         0.0000            -14.8875         0.0000       -14.8875       -14.8875         0.0000
+
+PAIR INTERACTION: STEP: 18 VDW_FORCE:        -35.3926       -25.5460        10.0589 ELECT_FORCE:         -0.3971         0.1196         0.1761
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 19
+TCL: Running for 0 steps
+ENERGY:      19         0.0000         0.0000         0.0000         0.0000             -0.5678        -6.4925         0.0000         0.0000         0.0000             -7.0603         0.0000        -7.0603        -7.0603         0.0000
+
+PAIR INTERACTION: STEP: 19 VDW_FORCE:         16.1832        12.2805         1.7294 ELECT_FORCE:         -1.0630        -0.2318        -0.1828
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 20
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      20         0.0000         0.0000         0.0000         0.0000              0.5105       -25.8907         0.0000         0.0000         0.0000            -25.3802         0.0000       -25.3802       -25.3802         0.0000
+
+PAIR INTERACTION: STEP: 20 VDW_FORCE:        -12.7698         0.7946        -3.7353 ELECT_FORCE:         -0.5973         0.1028         0.0486
+LDB: ============= START OF LOAD BALANCING ============== 0.828451
+LDB: Largest compute 13 load 0.001273 is 9.3% of average load 0.013709
+LDB: Average compute 0.000162 is 1.2% of average load 0.013709
+LDB: TIME 0.828529 LOAD: AVG 0.0137095 MAX 0.0138656  PROXIES: TOTAL 21 MAXPE 9 MAXPATCH 2 None MEM: 242.523 MB
+LDB: TIME 0.828571 LOAD: AVG 0.0137095 MAX 0.0138656  PROXIES: TOTAL 34 MAXPE 15 MAXPATCH 2 RefineTorusLB MEM: 242.523 MB
+LDB: TIME 0.828586 LOAD: AVG 0.0137095 MAX 0.0138656  PROXIES: TOTAL 34 MAXPE 15 MAXPATCH 2 RefineTorusLB MEM: 242.523 MB
+LDB: ============== END OF LOAD BALANCING =============== 0.828628
+Info: useSync: 0 useProxySync: 0
+LDB: =============== DONE WITH MIGRATION ================ 0.828816
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 21
+TCL: Running for 0 steps
+ENERGY:      21         0.0000         0.0000         0.0000         0.0000              0.1953       -18.3908         0.0000         0.0000         0.0000            -18.1955         0.0000       -18.1955       -18.1955         0.0000
+
+PAIR INTERACTION: STEP: 21 VDW_FORCE:        -15.9174       -20.7536        15.5317 ELECT_FORCE:         -0.5330         0.0852         0.1222
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 22
+TCL: Running for 0 steps
+ENERGY:      22         0.0000         0.0000         0.0000         0.0000              0.1785       120.5618         0.0000         0.0000         0.0000            120.7402         0.0000       120.7402       120.7402         0.0000
+
+PAIR INTERACTION: STEP: 22 VDW_FORCE:       -335.3095       295.5474       138.1427 ELECT_FORCE:         -1.0333         0.3768        -0.0005
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 23
+TCL: Running for 0 steps
+ENERGY:      23         0.0000         0.0000         0.0000         0.0000             -0.6855       -23.1684         0.0000         0.0000         0.0000            -23.8539         0.0000       -23.8539       -23.8539         0.0000
+
+PAIR INTERACTION: STEP: 23 VDW_FORCE:         -6.0381        -5.6201        -0.7520 ELECT_FORCE:         -0.9144         0.1174        -0.0085
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 24
+TCL: Running for 0 steps
+ENERGY:      24         0.0000         0.0000         0.0000         0.0000             -0.2990       193.5371         0.0000         0.0000         0.0000            193.2381         0.0000       193.2381       193.2381         0.0000
+
+PAIR INTERACTION: STEP: 24 VDW_FORCE:         11.6360       -32.3858        12.2477 ELECT_FORCE:         -0.5070        -0.2477        -0.3707
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 25
+TCL: Running for 0 steps
+ENERGY:      25         0.0000         0.0000         0.0000         0.0000             -1.8508       -14.6971         0.0000         0.0000         0.0000            -16.5479         0.0000       -16.5479       -16.5479         0.0000
+
+PAIR INTERACTION: STEP: 25 VDW_FORCE:          6.3989       -31.6889       -13.4340 ELECT_FORCE:         -1.2360         0.1137         0.2917
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 26
+TCL: Running for 0 steps
+ENERGY:      26         0.0000         0.0000         0.0000         0.0000              1.1420       -19.8980         0.0000         0.0000         0.0000            -18.7560         0.0000       -18.7560       -18.7560         0.0000
+
+PAIR INTERACTION: STEP: 26 VDW_FORCE:        -22.0174       -20.9962         8.5277 ELECT_FORCE:         -0.3982         0.0766         0.1554
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 27
+TCL: Running for 0 steps
+ENERGY:      27         0.0000         0.0000         0.0000         0.0000             -1.1690        19.4808         0.0000         0.0000         0.0000             18.3118         0.0000        18.3118        18.3118         0.0000
+
+PAIR INTERACTION: STEP: 27 VDW_FORCE:        -23.2437        21.2907        31.9762 ELECT_FORCE:         -1.1452         0.1259         0.4294
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 28
+TCL: Running for 0 steps
+ENERGY:      28         0.0000         0.0000         0.0000         0.0000             -0.6711         9.6439         0.0000         0.0000         0.0000              8.9729         0.0000         8.9729         8.9729         0.0000
+
+PAIR INTERACTION: STEP: 28 VDW_FORCE:         -8.9633       -11.5403        24.9716 ELECT_FORCE:         -0.9875        -0.1504        -0.3801
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 29
+TCL: Running for 0 steps
+ENERGY:      29         0.0000         0.0000         0.0000         0.0000             -0.8614       -18.4360         0.0000         0.0000         0.0000            -19.2974         0.0000       -19.2974       -19.2974         0.0000
+
+PAIR INTERACTION: STEP: 29 VDW_FORCE:        -21.7342       -14.7222        -5.1809 ELECT_FORCE:         -0.7643         0.4102         0.2322
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 30
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      30         0.0000         0.0000         0.0000         0.0000              0.5208       -26.1578         0.0000         0.0000         0.0000            -25.6370         0.0000       -25.6370       -25.6370         0.0000
+
+PAIR INTERACTION: STEP: 30 VDW_FORCE:        -10.9580         2.1738         5.4876 ELECT_FORCE:         -0.6215         0.1148         0.0251
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 31
+TCL: Running for 0 steps
+ENERGY:      31         0.0000         0.0000         0.0000         0.0000              0.1739       -18.2743         0.0000         0.0000         0.0000            -18.1004         0.0000       -18.1004       -18.1004         0.0000
+
+PAIR INTERACTION: STEP: 31 VDW_FORCE:        -14.1052        -2.1538        32.2339 ELECT_FORCE:         -0.8087         0.1579         0.1652
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 32
+TCL: Running for 0 steps
+ENERGY:      32         0.0000         0.0000         0.0000         0.0000             -0.6044       -22.9212         0.0000         0.0000         0.0000            -23.5256         0.0000       -23.5256       -23.5256         0.0000
+
+PAIR INTERACTION: STEP: 32 VDW_FORCE:          3.1534       -11.4958         2.5500 ELECT_FORCE:         -0.9740         0.1822        -0.0385
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 33
+TCL: Running for 0 steps
+ENERGY:      33         0.0000         0.0000         0.0000         0.0000             -1.3568       169.9199         0.0000         0.0000         0.0000            168.5631         0.0000       168.5631       168.5631         0.0000
+
+PAIR INTERACTION: STEP: 33 VDW_FORCE:        -15.5639       -36.4774       -34.1789 ELECT_FORCE:         -0.8672         0.3385         0.3762
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 34
+TCL: Running for 0 steps
+ENERGY:      34         0.0000         0.0000         0.0000         0.0000              1.3798       -19.5567         0.0000         0.0000         0.0000            -18.1769         0.0000       -18.1769       -18.1769         0.0000
+
+PAIR INTERACTION: STEP: 34 VDW_FORCE:        -17.1309        -7.0485         3.8492 ELECT_FORCE:         -0.3306         0.0432         0.0946
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 35
+TCL: Running for 0 steps
+ENERGY:      35         0.0000         0.0000         0.0000         0.0000             -1.2221        11.6360         0.0000         0.0000         0.0000             10.4139         0.0000        10.4139        10.4139         0.0000
+
+PAIR INTERACTION: STEP: 35 VDW_FORCE:        -30.1960         4.9325         7.0686 ELECT_FORCE:         -1.0889         0.1106         0.4082
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 36
+TCL: Running for 0 steps
+ENERGY:      36         0.0000         0.0000         0.0000         0.0000              1.3413         3.5484         0.0000         0.0000         0.0000              4.8897         0.0000         4.8897         4.8897         0.0000
+
+PAIR INTERACTION: STEP: 36 VDW_FORCE:        -60.8557      -111.7606        29.7215 ELECT_FORCE:         -0.3969         0.2834        -0.2620
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 37
+TCL: Running for 0 steps
+ENERGY:      37         0.0000         0.0000         0.0000         0.0000             -0.3084        82.7903         0.0000         0.0000         0.0000             82.4819         0.0000        82.4819        82.4819         0.0000
+
+PAIR INTERACTION: STEP: 37 VDW_FORCE:       -297.7938      -125.4844        93.5180 ELECT_FORCE:         -0.5020         0.2003         0.2630
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 38
+TCL: Running for 0 steps
+ENERGY:      38         0.0000         0.0000         0.0000         0.0000              0.4647       -26.3326         0.0000         0.0000         0.0000            -25.8679         0.0000       -25.8679       -25.8679         0.0000
+
+PAIR INTERACTION: STEP: 38 VDW_FORCE:         -1.1194         3.5331         2.6512 ELECT_FORCE:         -0.6376         0.1230         0.0252
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 39
+TCL: Running for 0 steps
+ENERGY:      39         0.0000         0.0000         0.0000         0.0000              0.4983       211.7867         0.0000         0.0000         0.0000            212.2850         0.0000       212.2850       212.2850         0.0000
+
+PAIR INTERACTION: STEP: 39 VDW_FORCE:        -25.5706        19.6922       -98.7828 ELECT_FORCE:         -0.2389         0.0743        -0.1529
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 40
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      40         0.0000         0.0000         0.0000         0.0000             -0.6813       -22.0822         0.0000         0.0000         0.0000            -22.7635         0.0000       -22.7635       -22.7635         0.0000
+
+PAIR INTERACTION: STEP: 40 VDW_FORCE:         -0.2063       -14.5667         3.0749 ELECT_FORCE:         -1.0127         0.2274         0.0109
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 41
+TCL: Running for 0 steps
+ENERGY:      41         0.0000         0.0000         0.0000         0.0000             -1.2448       174.7502         0.0000         0.0000         0.0000            173.5054         0.0000       173.5054       173.5054         0.0000
+
+PAIR INTERACTION: STEP: 41 VDW_FORCE:        -31.5582       -17.5723       -19.1079 ELECT_FORCE:         -0.8073         0.4546         0.3645
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 42
+TCL: Running for 0 steps
+ENERGY:      42         0.0000         0.0000         0.0000         0.0000             -1.0723        -7.0521         0.0000         0.0000         0.0000             -8.1244         0.0000        -8.1244        -8.1244         0.0000
+
+PAIR INTERACTION: STEP: 42 VDW_FORCE:        -51.8747        -8.9024         0.7994 ELECT_FORCE:         -0.8493         0.3560         0.2030
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 43
+TCL: Running for 0 steps
+ENERGY:      43         0.0000         0.0000         0.0000         0.0000              1.8329         6.8232         0.0000         0.0000         0.0000              8.6561         0.0000         8.6561         8.6561         0.0000
+
+PAIR INTERACTION: STEP: 43 VDW_FORCE:       -124.5895        39.2664        16.9577 ELECT_FORCE:         -0.1293        -0.0311         0.1158
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 44
+TCL: Running for 0 steps
+ENERGY:      44         0.0000         0.0000         0.0000         0.0000             -0.6502        45.9415         0.0000         0.0000         0.0000             45.2912         0.0000        45.2912        45.2912         0.0000
+
+PAIR INTERACTION: STEP: 44 VDW_FORCE:         14.0316        27.8212        -4.8900 ELECT_FORCE:         -1.1977         0.1602         0.2185
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 45
+TCL: Running for 0 steps
+ENERGY:      45         0.0000         0.0000         0.0000         0.0000              0.2160       274.9452         0.0000         0.0000         0.0000            275.1612         0.0000       275.1612       275.1612         0.0000
+
+PAIR INTERACTION: STEP: 45 VDW_FORCE:       -123.2870        10.9722        13.5368 ELECT_FORCE:         -0.1344         0.3293         0.0928
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 46
+TCL: Running for 0 steps
+ENERGY:      46         0.0000         0.0000         0.0000         0.0000             -1.0108       -21.4234         0.0000         0.0000         0.0000            -22.4342         0.0000       -22.4342       -22.4342         0.0000
+
+PAIR INTERACTION: STEP: 46 VDW_FORCE:         -6.2062       -14.0356         2.5958 ELECT_FORCE:         -1.1175         0.2594        -0.0838
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 47
+TCL: Running for 0 steps
+ENERGY:      47         0.0000         0.0000         0.0000         0.0000             -0.7673       130.0127         0.0000         0.0000         0.0000            129.2454         0.0000       129.2454       129.2454         0.0000
+
+PAIR INTERACTION: STEP: 47 VDW_FORCE:         22.1244       -17.1704       -21.8807 ELECT_FORCE:         -0.7552         0.3626         0.2146
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 48
+TCL: Running for 0 steps
+ENERGY:      48         0.0000         0.0000         0.0000         0.0000              0.9811       -24.1611         0.0000         0.0000         0.0000            -23.1799         0.0000       -23.1799       -23.1799         0.0000
+
+PAIR INTERACTION: STEP: 48 VDW_FORCE:        -10.6095       -12.3133         2.4821 ELECT_FORCE:         -0.6882        -0.0295         0.0869
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 49
+TCL: Running for 0 steps
+ENERGY:      49         0.0000         0.0000         0.0000         0.0000             -1.1531       -12.6747         0.0000         0.0000         0.0000            -13.8278         0.0000       -13.8278       -13.8278         0.0000
+
+PAIR INTERACTION: STEP: 49 VDW_FORCE:        -32.3893       -18.2587       -35.4905 ELECT_FORCE:         -0.9126         0.3346         0.2353
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 50
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      50         0.0000         0.0000         0.0000         0.0000              0.9052       -16.9011         0.0000         0.0000         0.0000            -15.9959         0.0000       -15.9959       -15.9959         0.0000
+
+PAIR INTERACTION: STEP: 50 VDW_FORCE:        -14.9927       -19.0493         9.8684 ELECT_FORCE:         -0.4999         0.1776         0.0562
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 51
+TCL: Running for 0 steps
+ENERGY:      51         0.0000         0.0000         0.0000         0.0000             -0.8152       -21.6377         0.0000         0.0000         0.0000            -22.4529         0.0000       -22.4529       -22.4529         0.0000
+
+PAIR INTERACTION: STEP: 51 VDW_FORCE:         -5.0084        -7.8917        -4.1738 ELECT_FORCE:         -1.0566         0.2582        -0.0854
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 52
+TCL: Running for 0 steps
+ENERGY:      52         0.0000         0.0000         0.0000         0.0000              0.4208        -7.8415         0.0000         0.0000         0.0000             -7.4207         0.0000        -7.4207        -7.4207         0.0000
+
+PAIR INTERACTION: STEP: 52 VDW_FORCE:        -19.8508       -19.4365        -4.7678 ELECT_FORCE:         -0.9410         0.5018         0.0194
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 53
+TCL: Running for 0 steps
+ENERGY:      53         0.0000         0.0000         0.0000         0.0000              1.2304        65.7400         0.0000         0.0000         0.0000             66.9704         0.0000        66.9704        66.9704         0.0000
+
+PAIR INTERACTION: STEP: 53 VDW_FORCE:         -9.7368         0.7121        51.7009 ELECT_FORCE:         -0.3085         0.3037        -0.1282
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 54
+TCL: Running for 0 steps
+ENERGY:      54         0.0000         0.0000         0.0000         0.0000             -0.6506         8.9362         0.0000         0.0000         0.0000              8.2856         0.0000         8.2856         8.2856         0.0000
+
+PAIR INTERACTION: STEP: 54 VDW_FORCE:        -81.4492        13.1548       -87.9224 ELECT_FORCE:         -0.6147         0.1695        -0.0831
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 55
+TCL: Running for 0 steps
+ENERGY:      55         0.0000         0.0000         0.0000         0.0000             -0.6097       442.3136         0.0000         0.0000         0.0000            441.7038         0.0000       441.7038       441.7038         0.0000
+
+PAIR INTERACTION: STEP: 55 VDW_FORCE:       -140.4468       164.0175       241.2255 ELECT_FORCE:         -0.8979         0.3648         0.0431
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 56
+TCL: Running for 0 steps
+ENERGY:      56         0.0000         0.0000         0.0000         0.0000             -0.5395       -24.4768         0.0000         0.0000         0.0000            -25.0163         0.0000       -25.0163       -25.0163         0.0000
+
+PAIR INTERACTION: STEP: 56 VDW_FORCE:        -11.4913        -6.8484        -6.4050 ELECT_FORCE:         -0.7867         0.0816         0.0075
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 57
+TCL: Running for 0 steps
+ENERGY:      57         0.0000         0.0000         0.0000         0.0000             -0.8753        25.5466         0.0000         0.0000         0.0000             24.6713         0.0000        24.6713        24.6713         0.0000
+
+PAIR INTERACTION: STEP: 57 VDW_FORCE:        -91.1108       134.6310        50.9632 ELECT_FORCE:         -0.8537         0.0569         0.2129
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 58
+TCL: Running for 0 steps
+ENERGY:      58         0.0000         0.0000         0.0000         0.0000             -0.1703       -13.5047         0.0000         0.0000         0.0000            -13.6750         0.0000       -13.6750       -13.6750         0.0000
+
+PAIR INTERACTION: STEP: 58 VDW_FORCE:        -17.8116        -7.7230         5.4117 ELECT_FORCE:         -0.7179         0.0887         0.0733
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 59
+TCL: Running for 0 steps
+ENERGY:      59         0.0000         0.0000         0.0000         0.0000              0.5127       -20.1656         0.0000         0.0000         0.0000            -19.6529         0.0000       -19.6529       -19.6529         0.0000
+
+PAIR INTERACTION: STEP: 59 VDW_FORCE:        -23.3345         2.0122         9.2829 ELECT_FORCE:         -0.2379        -0.1001         0.2640
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 60
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      60         0.0000         0.0000         0.0000         0.0000             -0.0280       -19.0742         0.0000         0.0000         0.0000            -19.1022         0.0000       -19.1022       -19.1022         0.0000
+
+PAIR INTERACTION: STEP: 60 VDW_FORCE:         -7.7386        -1.7500        -3.0672 ELECT_FORCE:         -0.3499         0.0390         0.1859
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 61
+TCL: Running for 0 steps
+ENERGY:      61         0.0000         0.0000         0.0000         0.0000             -0.4107       -17.5837         0.0000         0.0000         0.0000            -17.9945         0.0000       -17.9945       -17.9945         0.0000
+
+PAIR INTERACTION: STEP: 61 VDW_FORCE:         -8.9405        19.9509         1.0834 ELECT_FORCE:         -0.0930        -0.3770         0.1582
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 62
+TCL: Running for 0 steps
+ENERGY:      62         0.0000         0.0000         0.0000         0.0000             -1.7197       -14.7817         0.0000         0.0000         0.0000            -16.5014         0.0000       -16.5014       -16.5014         0.0000
+
+PAIR INTERACTION: STEP: 62 VDW_FORCE:          6.8161        -7.7220         4.9765 ELECT_FORCE:         -0.7654        -0.2093        -0.1412
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 63
+TCL: Running for 0 steps
+ENERGY:      63         0.0000         0.0000         0.0000         0.0000              0.7497       -16.0396         0.0000         0.0000         0.0000            -15.2899         0.0000       -15.2899       -15.2899         0.0000
+
+PAIR INTERACTION: STEP: 63 VDW_FORCE:        -14.2158        -3.4070         6.6231 ELECT_FORCE:         -0.5725        -0.0581         0.1109
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 64
+TCL: Running for 0 steps
+ENERGY:      64         0.0000         0.0000         0.0000         0.0000             -0.0174       -17.8879         0.0000         0.0000         0.0000            -17.9053         0.0000       -17.9053       -17.9053         0.0000
+
+PAIR INTERACTION: STEP: 64 VDW_FORCE:        -21.3140         7.7612        -2.8238 ELECT_FORCE:         -0.1332        -0.0726         0.2800
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 65
+TCL: Running for 0 steps
+ENERGY:      65         0.0000         0.0000         0.0000         0.0000             -0.5032        -7.8814         0.0000         0.0000         0.0000             -8.3846         0.0000        -8.3846        -8.3846         0.0000
+
+PAIR INTERACTION: STEP: 65 VDW_FORCE:        -31.6547        36.6482        21.6163 ELECT_FORCE:         -0.1634        -0.2278         0.1325
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 66
+TCL: Running for 0 steps
+ENERGY:      66         0.0000         0.0000         0.0000         0.0000             -1.3706       -15.4689         0.0000         0.0000         0.0000            -16.8396         0.0000       -16.8396       -16.8396         0.0000
+
+PAIR INTERACTION: STEP: 66 VDW_FORCE:         10.4072        -3.0185         3.8444 ELECT_FORCE:         -0.8846        -0.0676        -0.0876
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 67
+TCL: Running for 0 steps
+ENERGY:      67         0.0000         0.0000         0.0000         0.0000              1.3100       -22.5924         0.0000         0.0000         0.0000            -21.2824         0.0000       -21.2824       -21.2824         0.0000
+
+PAIR INTERACTION: STEP: 67 VDW_FORCE:         -5.8821         1.2054        -6.8324 ELECT_FORCE:          0.0059        -0.1842         0.2490
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 68
+TCL: Running for 0 steps
+ENERGY:      68         0.0000         0.0000         0.0000         0.0000             -0.1007       -16.8938         0.0000         0.0000         0.0000            -16.9945         0.0000       -16.9945       -16.9945         0.0000
+
+PAIR INTERACTION: STEP: 68 VDW_FORCE:         -8.3958         2.1354        21.5541 ELECT_FORCE:         -0.8600         0.1966        -0.1042
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 69
+TCL: Running for 0 steps
+ENERGY:      69         0.0000         0.0000         0.0000         0.0000              0.9907       -20.1524         0.0000         0.0000         0.0000            -19.1617         0.0000       -19.1617       -19.1617         0.0000
+
+PAIR INTERACTION: STEP: 69 VDW_FORCE:        -13.9633       -13.9450        12.6812 ELECT_FORCE:         -0.6072         0.2689         0.3754
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 70
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      70         0.0000         0.0000         0.0000         0.0000             -0.3018       -22.7127         0.0000         0.0000         0.0000            -23.0145         0.0000       -23.0145       -23.0145         0.0000
+
+PAIR INTERACTION: STEP: 70 VDW_FORCE:         -4.6555        -7.2836        -2.6050 ELECT_FORCE:         -0.5815         0.0023         0.1625
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 71
+TCL: Running for 0 steps
+ENERGY:      71         0.0000         0.0000         0.0000         0.0000              0.5757       -22.7923         0.0000         0.0000         0.0000            -22.2165         0.0000       -22.2165       -22.2165         0.0000
+
+PAIR INTERACTION: STEP: 71 VDW_FORCE:         -2.9412        -0.4612         1.9175 ELECT_FORCE:         -0.4998        -0.0035         0.1985
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 72
+TCL: Running for 0 steps
+ENERGY:      72         0.0000         0.0000         0.0000         0.0000             -1.0578        40.8680         0.0000         0.0000         0.0000             39.8102         0.0000        39.8102        39.8102         0.0000
+
+PAIR INTERACTION: STEP: 72 VDW_FORCE:       -161.7615       137.0582         5.0128 ELECT_FORCE:         -0.8669         0.0768         0.1963
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 73
+TCL: Running for 0 steps
+ENERGY:      73         0.0000         0.0000         0.0000         0.0000             -0.0169       -18.2916         0.0000         0.0000         0.0000            -18.3085         0.0000       -18.3085       -18.3085         0.0000
+
+PAIR INTERACTION: STEP: 73 VDW_FORCE:         -5.9569        -2.6945        -0.1009 ELECT_FORCE:         -0.7070         0.1087         0.0841
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 74
+TCL: Running for 0 steps
+ENERGY:      74         0.0000         0.0000         0.0000         0.0000              0.1171       -19.2943         0.0000         0.0000         0.0000            -19.1772         0.0000       -19.1772       -19.1772         0.0000
+
+PAIR INTERACTION: STEP: 74 VDW_FORCE:         -9.1517        -1.1846         1.1816 ELECT_FORCE:         -0.3953         0.0373         0.2263
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 75
+TCL: Running for 0 steps
+ENERGY:      75         0.0000         0.0000         0.0000         0.0000             -0.1644       -21.0880         0.0000         0.0000         0.0000            -21.2523         0.0000       -21.2523       -21.2523         0.0000
+
+PAIR INTERACTION: STEP: 75 VDW_FORCE:        -13.7833         3.4406         6.5203 ELECT_FORCE:         -0.0925        -0.4046         0.1859
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 76
+TCL: Running for 0 steps
+ENERGY:      76         0.0000         0.0000         0.0000         0.0000             -1.5239       -11.8098         0.0000         0.0000         0.0000            -13.3337         0.0000       -13.3337       -13.3337         0.0000
+
+PAIR INTERACTION: STEP: 76 VDW_FORCE:        -14.2283        -6.1486        15.7545 ELECT_FORCE:         -0.7929        -0.1269         0.1109
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 77
+TCL: Running for 0 steps
+ENERGY:      77         0.0000         0.0000         0.0000         0.0000              0.6976       -15.1720         0.0000         0.0000         0.0000            -14.4744         0.0000       -14.4744       -14.4744         0.0000
+
+PAIR INTERACTION: STEP: 77 VDW_FORCE:        -21.1974       -18.9624        11.3869 ELECT_FORCE:         -0.5920        -0.0097         0.1025
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 78
+TCL: Running for 0 steps
+ENERGY:      78         0.0000         0.0000         0.0000         0.0000              0.2728       -24.9334         0.0000         0.0000         0.0000            -24.6606         0.0000       -24.6606       -24.6606         0.0000
+
+PAIR INTERACTION: STEP: 78 VDW_FORCE:         -8.0756        -2.0156         2.1912 ELECT_FORCE:         -0.1134        -0.0039         0.2378
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 79
+TCL: Running for 0 steps
+ENERGY:      79         0.0000         0.0000         0.0000         0.0000             -0.2545        -6.8086         0.0000         0.0000         0.0000             -7.0630         0.0000        -7.0630        -7.0630         0.0000
+
+PAIR INTERACTION: STEP: 79 VDW_FORCE:        -49.1326        38.2130         7.1593 ELECT_FORCE:         -0.3038        -0.1772         0.1262
+Info: Reading timestep from file.
+Info: REMOVING COM VELOCITY 0 0 0
+TCL: Setting parameter firstTimestep to 80
+TCL: Running for 0 steps
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+
+ENERGY:      80         0.0000         0.0000         0.0000         0.0000             -1.5415       -16.9013         0.0000         0.0000         0.0000            -18.4428         0.0000       -18.4428       -18.4428         0.0000
+
+PAIR INTERACTION: STEP: 80 VDW_FORCE:          5.9128        -7.7511         1.5584 ELECT_FORCE:         -0.9583        -0.0252        -0.0244
+Info: Closing coordinate file.
+WRITING EXTENDED SYSTEM TO OUTPUT FILE AT STEP 80
+WRITING COORDINATES TO OUTPUT FILE AT STEP 80
+The last position output (seq=-2) takes 0.052 seconds, 242.660 MB of memory in use
+WRITING VELOCITIES TO OUTPUT FILE AT STEP 80
+The last velocity output (seq=-2) takes 0.064 seconds, 242.660 MB of memory in use
+====================================================
+
+WallClock: 1.347184  CPUTime: 1.077091  Memory: 242.660156 MB
+[Partition 0][Node 0] End of program
