@@ -32,7 +32,6 @@ set self_rot 90
 ############# Grid creation parameters
 
 #### pocket residues of protein the grid is centered on
-#set pocket [atomselect top "protein and resid 16 40 42 82 132 102 106 113 114 115 116 117 118 119 120"] 
 set pocket_residues {16 40 42 82 132 102 106 113 114 115 116 117 118 119 120}
 #### Grid dimensions: positive and negative max distance from center
 set del_x_pos 8
