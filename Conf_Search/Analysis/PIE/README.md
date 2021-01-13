@@ -1,5 +1,6 @@
-
+**********************************************
 Evaluate Pair Interaction Energy (PIE) for each minimized pose
+**********************************************
 
 About:
 	
