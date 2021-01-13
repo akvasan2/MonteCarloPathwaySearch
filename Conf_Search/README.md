@@ -13,9 +13,9 @@ The order of steps to use this protocol are:
 
 2. Minimization of each pose.  Scripts found in Minimization/ 
 
-3. Evaluation of pair interaction energy. Scripts found in Analysis/PIE/
+3. Evaluation of pair interaction energy of the drug poses. Scripts found in Analysis/PIE/
 
-4. Evaluation of slow coordinates of the drug.  Scripts found in Analysis/Slow_Coordinates/ 
+4. Evaluation of slow coordinates of the drug poses.  Scripts found in Analysis/Slow_Coordinates/ 
 
 Input_Files and Parameters directories include structures and parameters needed to run these scripts, respectively.
 
