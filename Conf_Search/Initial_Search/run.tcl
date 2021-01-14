@@ -36,7 +36,7 @@ set it 1
 for {set t_len 0} {$t_len<$frame_number} {incr t_len 100000} {
 	if {[expr $t_len+100000]>$frame_number} {
 		animate write dcd dcds/dcdsstart_${it}.dcd beg [expr $t_len+1] end -1 waitfor all
-	} elseif {$tlen==0} {
+	} elseif {$t_len==0} {
 		animate write dcd dcds/dcdsstart_${it}.dcd beg [expr $t_len] end [expr $t_len+100000] waitfor all
 	} else {
 	animate write dcd dcds/dcdsstart_${it}.dcd beg [expr $t_len+1] end [expr $t_len+100000] waitfor all
