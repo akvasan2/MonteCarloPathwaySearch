@@ -1,4 +1,4 @@
-#######Initial structure##########
+#######Initial structure
 structure         ../../Input_Files/system.psf 
 coordinates       ../../Input_Files/system.pdb
 
