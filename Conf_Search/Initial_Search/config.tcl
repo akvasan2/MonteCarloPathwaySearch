@@ -16,8 +16,8 @@ set pdb_file "../Input_Files/system.pdb"
 ############# 1. Gen of multi orientations ###############
 
 ###### number of fibonacci points on sphere used to generate theta, phi angles
-#50
-set num 5 
+
+set num 50 
 
 ###### head and tail atom names for vector used as reference when rotating drug
 
