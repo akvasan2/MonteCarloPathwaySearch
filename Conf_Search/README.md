@@ -17,6 +17,6 @@ The order of steps to use this protocol are:
 
 4. Evaluation of slow coordinates of the drug poses.  Scripts found in Analysis/Slow_Coordinates/ 
 
-Follow instructions detailed in the README.MD file within the specified directory for each step . 
+Follow instructions detailed in the README.MD file within each step's specified directory. 
 
-Input_Files and Parameters directories include structures and parameters needed to run these scripts, respectively.
+Input_Files and Parameters directories include structures and parameters needed to run scripts, respectively.
