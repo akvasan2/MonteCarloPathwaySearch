@@ -46,7 +46,7 @@ Required files:
 
 	Parameter files: stored in Conf_Search/Parameters
         
-        fixedAtomsFile specifying atoms to be fixed: stored as ../../Input_Files/fix.pdb. The B column of each atom of the two molecules should equal 1 or 2 
+	fixedAtomsFile specifying atoms to be fixed: stored as ../../Input_Files/fix.pdb. The B column of each atom of the two molecules should equal 1 or 2 
         
 How to run:
 
