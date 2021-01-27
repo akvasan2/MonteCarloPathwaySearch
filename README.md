@@ -97,7 +97,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 
 #### Code description:
 
-Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that interested conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. 
+Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. 
 ##### How to run:
 
 	python run.py
