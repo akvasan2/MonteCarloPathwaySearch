@@ -119,24 +119,25 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 ##### How to run:
 
-python Filter_Trajectories.py
+	python Filter_Trajectories.py
 
 ##### Output:
 
-Traj_Group_Data/cluster1_paths.dat
+	Traj_Group_Data/cluster1_paths.dat
 	   
-Traj_Group_Data/cluster2_paths.dat
+	Traj_Group_Data/cluster2_paths.dat
 
 #### B. Idenfitication of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
 
 ##### How to run:
 
-python Dijkstras/Find_Paths.py
+	python Dijkstras/Find_Paths.py
 
 ##### Output:
 
-Cluster1/pathway.dat: Most Likely Path files for each group 
-Cluster2/pathway.dat
+	Cluster1/pathway.dat: Most Likely Path files for each group 
+
+	Cluster2/pathway.dat
 
 ## Necessary softwares/programming environments:
 
@@ -149,12 +150,19 @@ Orient: Instructions to install are at https://www.ks.uiuc.edu/Research/vmd/scri
 ### Python 3
 
 ### Modules necessary:
+
 numpy
+
 math
+
 random
+
 multiprocessing
+
 joblib
+
 csv
+
 matplotlib
 
 ### NAMD2
