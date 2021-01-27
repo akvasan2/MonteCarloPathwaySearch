@@ -11,7 +11,7 @@ Involves 2 steps:
 
 Parameters for each step:
 
-	1. Filtering trajectories (Filter_Trajectories.py)
+1. Filtering trajectories (Filter_Trajectories.py)
 
 		data_file: exhaustive search data
 
@@ -39,8 +39,8 @@ Parameters for each step:
 		
 		Top and bottom z-values of grid.  Will use this grid to select trajectories so adjust this accordingly 
 	
-	        top_z
-	        bott_z
+		        top_z
+		        bott_z
 		
 		density_cutoff: we are using grids denser than this to group trajectories.
 	
@@ -58,34 +58,34 @@ Parameters for each step:
 
 2. Most Likely Pathways (Find_Paths.py) 
 
-	cluster1 transitions file
+		cluster1 transitions file
 
-	cluster2 transitions file
+		cluster2 transitions file
 
-	Indices for z, inc, azimuthal, energy in input data 
+		Indices for z, inc, azimuthal, energy in input data 
 
-		z_ind 	
-        	
-		inc_in
-        	
-		az_ind
+			z_ind 	
+        		
+			inc_in
+        		
+			az_ind
 
-        	en_ind
+        		en_ind
 
-	data: input data	
+		data: input data	
 
-	Top and bottom z-values to apply Dijkstra's algorithm.  Be careful that this is different than from grid in step 1. Will determine ending and starting z-values of Most likely path.
+		Top and bottom z-values to apply Dijkstra's algorithm.  Be careful that this is different than from grid in step 1. Will determine ending and starting z-values of Most likely path.
 
-		top_z
+			top_z
 
-		bott_z
+			bott_z
 
-	Step sizes used to build transition matrix. 
-		
-		z_step
-        	
-		inc_step
-        	
-		az_step 
+		Step sizes used to build transition matrix. 
+			
+			z_step
+        		
+			inc_step
+        		
+			az_step 
 
-	Final output:  most likely pathway for each cluster
+		Final output:  most likely pathway for each cluster
