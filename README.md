@@ -35,6 +35,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 	source run.tcl
 
 	Note: must first open vmd in gui mode and then source run.tcl
+	
 	Update relevant parameters in config.tcl 
 
 ##### Output:
