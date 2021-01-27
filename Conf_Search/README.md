@@ -2,7 +2,6 @@
 Exhaustive search for antibiotic poses in conformational space 
 ===============================================================================
 
-
 Scripts used to exhaustively search over the translational and rotational space for an antibiotic to generate multiple poses.  Identified poses are minimized and their interaction energy and slow degrees of freedom are evaluated.  
 
 This protocol generates a conformational landscape which MCPS walks through using Monte Carlo moves.

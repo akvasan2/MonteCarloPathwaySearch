@@ -16,7 +16,58 @@ Involves 3 steps:
 
 1.  Exhaustive search for antibiotic poses within translational and rotational space.  After this search, a multidimensional energy landscape is created by evaluating antibiotic-protein interaction energy for each pose. (Found in Conf_Search directory) 
 
-2.  Monte Carlo Based Pathway Search Algorith to walk through the energy landscape using Monte Carlo (MC) moves.  Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. We advise that you run this multiple times to obtain multiple trajectories to sufficiently sample conformational space.  You can observe the convergence by plotting the trajectory density.  This code can be run on multiple  processors. (Found in MCPS directory)
+Divided into 4 substeps:
+
+	A. Exhaustive initial search of all poses for the antibiotic. (Found in Conf_Search/Initial_Search)
+	Involves:
+		
+		Generating multiple drug orientations by aligning a vector of the drug to fibonacci sphere and doing self rotations of the drug
+		
+		Translating the drug to all possible positions within the protein at points along a grid.
+
+		Removing any clashes or ring pierces between drug and protein.
+		
+
+	Required files:
+        	
+        	Structure and coordinate files (i.e. psf, pdb) files stored as ../Input_Files/system.psf and ../Input_Files/system.pdb
+
+	How to run:
+		
+		vmd
+
+		source run.tcl
+
+		Note: must first open vmd in gui mode and then source run.tcl
+
+	Output:
+		dcds/dcdsstart_*.dcd: dcd containing each pose
+
+	B. Minimization of each pose obtained from initial search.  (Found in Conf_Search/Minimization) 
+	
+	Required files:
+
+		Structure and coordinate files (i.e. psf, pdb) files stored as ../Input_Files/system.psf and ../Input_Files/system.pdb
+
+		Parameter files: stored in ../../Parameters
+                
+                fixedAtomsFile specifying atoms to be fixed: stored as ../../Input_Files/fix.pdb. The B column of each atom of the two molecules should equal 1 or 2 
+                
+	How to run:
+
+		bash run.sh
+
+	Output:
+
+		minimize_output/dcdsstart_*.dcd
+
+
+	C. Evaluation of pair interaction energy of the drug poses. (Found in Analysis/PIE)
+
+	D. Evaluation of slow coordinates of the drug poses.  (Found in Analysis/Slow_Coordinates) 
+
+
+2. Monte Carlo Based Pathway Search (MCPS) Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that interested conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. (Found in MCPS directory) 
 
 3. Determination of most likely pathways sampled in our MCPS trajectories.  The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. (Found in MostLikelyPathway directory)
 
