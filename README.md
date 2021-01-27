@@ -153,9 +153,11 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 	
 ##### Output:
 
-	Cluster1/pathway.dat: Most Likely Path files for each group 
+	Cluster1/pathway.dat: Most Likely Path files for each group, specifying the grid  
 
 	Cluster2/pathway.dat
+
+### Plot the paths (Cluster*/pathway.dat) using plotting_path.py
 
 ## Necessary softwares/programming environments:
 
