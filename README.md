@@ -24,7 +24,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 
 #### A. Exhaustive initial search of all poses for the antibiotic. 
 
-Involves: generating multiple drug orientations, translating the drug to all possible positions within protein at points along a grid, and removing clashes/ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
+Involves: generating multiple drug orientations, translating the drug to all possible positions within the protein at points along a grid, and removing clashes/ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
 
 ##### Required files:
         	
@@ -32,14 +32,14 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 ##### How to run:
 	
+	Set parameters in config.tcl 
+	
 	vmd
 
 	source run.tcl
 
 	Note: must first open vmd in gui mode and then source run.tcl
 	
-	Update parameters in config.tcl 
-
 ##### Output:
 
 	dcds/dcdsstart_*.dcd: dcd containing each pose
@@ -56,10 +56,10 @@ Involves: generating multiple drug orientations, translating the drug to all pos
         
 ##### How to run:
 
+	Set parameters in minimize_1.namd and run.sh
+	
 	bash run.sh
 	
-	Update parameters in minimize_1.namd and run.sh
-
 ##### Output:
 
 	minimize_output/dcdsstart_*.dcd
@@ -76,10 +76,11 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 ##### How to run:
 	
+	Set parameters in pie_1.namd and run.sh
+	
 	bash run.sh 
 	
-	Update parameters in pie_1.namd and run.sh
-
+	
 ##### Output:
 	
 	Output/PIE.dat
@@ -92,9 +93,9 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 ##### How to run:
 	
+	Set parameters in slow_coor.tcl
+	
 	vmd slow_coor.tcl 
-
-	Update parameters in slow_coor.tcl
 
 ##### Output:
 
@@ -104,10 +105,10 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 ##### How to run:
 	
+	Set parameters in make_cnst.tcl
+	
 	vmd make_cnst.tcl 
-
-	Update parameters in make_cnst.tcl
-
+	
 ##### Output:
 
 	fix.pdb, PIE.pdb: files needed for minimization, pair interaction energy calculation
@@ -119,10 +120,10 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. 
 ##### How to run:
 
+	Set parameters in run.py
+	
 	python run.py
-
-	Update parameters in run.py
-
+	
 ##### Output:
 
 	Output_Files/transition_search.dat
@@ -141,10 +142,10 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 ##### How to run:
 
+	Set parameters in Filter_Trajectories.py
+	
 	python Filter_Trajectories.py
-
-	Update parameters in Filter_Trajectories.py
-
+	
 ##### Output:
 
 	Traj_Group_Data/cluster1_paths.dat
@@ -155,10 +156,10 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 ##### How to run:
 
+	Set parameters in Dijkstras/Find_Paths.py
+	
 	python Dijkstras/Find_Paths.py
-
-	Update parameters in Dijkstras/Find_Paths.py
-
+	
 ##### Output:
 
 	Cluster1/pathway.dat: Most Likely Path files for each group 
