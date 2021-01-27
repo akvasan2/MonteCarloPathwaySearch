@@ -70,7 +70,7 @@ Parameters for each step:
         		
 			az_ind
 
-        		en_ind
+			en_ind
 
 		data: input data	
 
