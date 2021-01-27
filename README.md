@@ -32,7 +32,7 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 ##### How to run:
 	
-	Set parameters in config.tcl 
+	Set parameters in run.tcl 
 	
 	vmd
 
