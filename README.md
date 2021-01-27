@@ -24,7 +24,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 
 #### A. Exhaustive initial search of all poses for the antibiotic. 
 
-Involves: generating multiple drug orientations, translating the drug to all possible positions within protein at points along a grid, and removing clashes/ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
+Involves: generating multiple drug orientations, translating the drug to all possible positions within the protein at points along a grid, and removing clashes/ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
 
 ##### Required files:
         	
