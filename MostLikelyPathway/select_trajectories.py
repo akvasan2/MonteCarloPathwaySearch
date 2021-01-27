@@ -81,7 +81,7 @@ def open_paths (paths_file,paths_density_file):
 
 #################################################################################################################
 
-def cluster_trajectories(transitions, bins_z, pathway_grids, pathway_density, count_cutoff, density_cutoff, cluster_cutoff,paths_file,paths_file_c1,paths_file_c2, path_gridfle_c1, path_gridfle_c2,Grid_z,Grid_az,Grid_density):
+def cluster_trajectories(transitions, bins_z, pathway_grids, pathway_density, count_cutoff, density_cutoff, cluster_cutoff,paths_file,paths_file_c1,paths_file_c2 ,Grid_z,Grid_az,Grid_density):
 
     allowed_trajectories = {}
     allowed_path_indices = []
@@ -173,28 +173,5 @@ def cluster_trajectories(transitions, bins_z, pathway_grids, pathway_density, co
         writer=csv.writer(f,delimiter=' ',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(clust2_traj[i])
         f.close()                                                                          
-
-    f = open(path_gridfle_c1,'w')
-    f.write('')
-    f.close()
-    
-    for i in range(len(clust1_grid_traj)):
-        
-        f=open(path_gridfle_c1,'a+',newline='')
-        writer=csv.writer(f,delimiter=' ',quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(clust1_grid_traj[i])
-        f.close()                                                                          
-
-    f = open(path_gridfle_c2,'w')
-    f.write('')
-    f.close()
-    
-    for i in range(len(clust2_grid_traj)):
-        
-        f=open(path_gridfle_c2,'a+',newline='')
-        writer=csv.writer(f,delimiter=' ',quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(clust2_grid_traj[i])
-        f.close()                                                                          
-
 
 

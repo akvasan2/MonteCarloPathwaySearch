@@ -13,32 +13,27 @@ import matplotlib.pyplot as plt
 import MCPS as TS
 import logging
 
+################ Input parameters ################
+
 data=np.loadtxt('Input_Files/input.dat') #### dataset taken from docking
 output_file='Output_Files/transition_search.dat' ###### location for output paths from algorithm 
 
 log_file='log.log' ####### log file to indicate errors and time to run algorithm
 
-############### Index for each variable used #####################
+z_ind=0 # index for z
+inc_ind=1 # index for inclination
+az_ind=2 # index for azimuthal
+energy_ind=3 # index for energy
 
-z_ind=0
-inc_ind=1
-az_ind=2
-energy_ind=3
+top_z=np.max(data[:,0]) #topmost z to start search 
+bott_z=np.min(data[:,0]) # bottommost z to end search
+z_step=1 ### step size in z. 
+inc_step=18 ### step size in inclination. 
+az_step=18 ### step size in azimuthal. 
 
-############## Specify top and bottom boundaries of z bins ###############
-top_z=np.max(data[:,0])
-bott_z=np.min(data[:,0])
-z_step=1 ### size of each z bin.  set here to 1
+num=10 ### number of MCPS trajectories to obtain.  Check when convergence occurs to tune this parameter. 
 
-############# Step size for each angle  ########
-inc_step=18
-az_step=18
-
-############number of runs and processors to use (running is done in parallel)###############################
-
-num=10 
-
-proc = 2
+proc = 2 ### number of processors to use (running is done in parallel)
 
 ##############################################create z bins to use in algorithm#########################################################
 

@@ -15,18 +15,30 @@ cmap="RdBu_r"
 ##############################################################################################################################
 ############################################loading in data#########################################################
 
-t_file=open('Output_Files/transition_search.dat')
+t_file=open('Output_Files/transition_search.dat') ### trajectory data
+transition_num = 2000 ## number of transitions to plot
 
 transitions_tot=[]
 with t_file as my_file:
     for line in my_file:
         myarray=np.fromstring(line, dtype=float, sep=' ')
         transitions_tot.append(myarray)
-transitions=transitions_tot[0:2000]
+transitions=transitions_tot[0:transition_num]
 
-data=np.loadtxt('Input_Files/input.dat')
-beta=1/float(np.std(data[:,3]))
-en_mn=np.mean(data[:,3])
+data=np.loadtxt('Input_Files/input.dat') ### input data
+z_ind = 0
+inc_ind = 1
+az_ind = 2
+en_ind = 3
+
+beta=1/float(np.std(data[:,en_ind])) ### std of energy to standardize energy
+en_mn=np.mean(data[:,en_ind]) ### mean of energy to standardize energy
+
+top_z=16.5 ## topmost z value to plot
+bott_z=-7.5 ## bottommost z value to plot
+
+inc_step = 18 ## stepsize in inc when plotting the boltzmann weighted density
+az_step = 18 ## stepsize in inc when plotting the boltzmann weighted density
 
 transitions_z={}
 transitions_beta={}
@@ -50,22 +62,17 @@ transitions_energy=[]
 for i in range(len(transitions)):
     for j in range(len(transitions[i])-1):
         f=int(transitions[i][j])
-        if data[f][0]>-7.5 and data[f][0]<16.5:
-            transitions_angles=np.append(transitions_angles,data[f] [1])
-            transitions_z=np.append(transitions_z,data[f][0])
-            transitions_beta=np.append(transitions_beta,data[f][2])
-            transitions_energy=np.append(transitions_energy,data[f][3])
-
-cmap="RdBu_r"
-
+        if data[f][0]>bott_z and data[f][0]<top_z:
+            transitions_angles=np.append(transitions_angles,data[f] [inc_ind])
+            transitions_z=np.append(transitions_z,data[f][z_ind])
+            transitions_beta=np.append(transitions_beta,data[f][az_ind])
+            transitions_energy=np.append(transitions_energy,data[f][en_ind])
 
 ##############################################################################################################################
 
 ################################  Creating grids #################################################3
 
 grid_z=[]
-top_z=16.5
-bott_z=-7.5
 z_step=1
 z_num=int((top_z-bott_z)/float(z_step))
 
@@ -73,8 +80,6 @@ for i in range(z_num):
     z_i=top_z-z_step*i
     grid_z=np.append(grid_z,z_i)
 
-inc_step = 18
-az_step = 18
 
 grid_inc_ang=np.arange(0,180,inc_step)
 grid_az_ang=np.arange(0,360,az_step)
@@ -193,13 +198,13 @@ for z in range(len(min_z_grid)):
 ################################  Plotting #################################################3
 
 plt.scatter(z_grid_proj,inc_grid_proj,c=av_inc_z_dens,cmap=cmap,s=500,marker='s')
-plt.xlim(-7,16)
+plt.xlim(bott_z,top_z)
 plt.ylim(0,180)
 plt.savefig('z_inc_proj.png')
 plt.close()
 
 plt.scatter(z_grid_proj_az,az_grid_proj,c=av_az_z_dens,cmap=cmap,s=500,marker='s')
-plt.xlim(-7,16)
+plt.xlim(bott_z,top_z)
 plt.ylim(0,360)
 plt.savefig('z_az_proj.png')
 plt.close()

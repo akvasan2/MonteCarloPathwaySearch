@@ -1,7 +1,6 @@
 ########Evaluate Pair Interaction Energy (PIE) for each minimized pose#######
 #########################################################################
 ##################Important parameters to set: ##################
-
 # dielectric: dielectric constant to run simulations default: 78.5	
 
 #######Initial structure

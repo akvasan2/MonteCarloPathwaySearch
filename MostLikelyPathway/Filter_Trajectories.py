@@ -16,20 +16,17 @@ cmap="RdBu_r"
 ######## Definition of parameters####### 
 #############################################
 
-#### Load in input data ####
-
 data_file='../Input_Files/input.dat' #### File containing raw data obtained from Conf_Search protocol
 
 data=np.loadtxt(data_file)
-# Index for each slow coordinate
 
+## Index for each slow coordinate
 z_index = 0
 inc_index = 1
 az_index = 2
 en_index = 3
 
-### en_std and en_mean used to standardize energy later.
-
+### en_std and en_mean used to standardize energy.
 en_std = np.std(data[:,en_index])
 en_mean = np.mean(data[:,en_index])
 
@@ -47,19 +44,20 @@ transitions=transitions_tot[0:num_transitions]
 
 ###### Grid construction parameters
 
-z_step = 1
-inc_step = 18
-az_step = 18
-top_z=6 ### topmost z to create grid
-bott_z=-2 ### bottomost z
+z_step = 1 ## grid size in z
+inc_step = 18 ## grid size in inc
+az_step = 18 ## grid size in az
+top_z=6 ## topmost z to create grid
+bott_z=-2 ## bottomost z
 
 ##### Trajectory selection parameters
-
-#### create bins for z, inc, az
 bins_z=[]
 
 z_num=int((top_z-bott_z)/float(z_step))
 
+#### Create bins for z, inc, az
+
+## Do not change parameters here
 for i in range(z_num):
     z_i=top_z-z_step*i
     bins_z=np.append(bins_z,z_i)
@@ -74,22 +72,24 @@ paths_density_file = 'pathway_density.dat' #### Density at each point along traj
     
 ###### Group trajectories ########
 
-cluster_cutoff = 0 #### Define how to cutoff the clusters.  In code, this is defined as the aziuthal angle to cutoff the clusters.  If you do not want to cluster, then just set this cutoff to 0
-density_cutoff = 0.2
-count_cutoff = len(bins_z)-1
+cluster_cutoff = 0 #### Define how to cutoff the clusters.  In this code, this is defined as the aziuthal angle to cutoff the clusters.  If you do not want to cluster, then just set this cutoff to 0
+density_cutoff = 0.2 ## we are using grids denser than this to group trajectories.
 
-paths_file = f'Traj_Group_Data/screened_trajectories.dat'
-paths_file_c1 = f'Traj_Group_Data/cluster1_paths.dat'
-paths_file_c2 = f'Traj_Group_Data/cluster2_paths.dat'
-path_gridfle_c1 = f'Traj_Group_Data/cluster1_paths_grid.dat'
-path_gridfle_c2 = f'Traj_Group_Data/cluster2_paths_grid.dat'
+count_cutoff = len(bins_z)-1 ## keep this set as is.
 
-############## if you've already assigned grids to paths: SWITCH = 0, otherwise: SWITCH = 1
-SWITCH = 1  
+paths_file = f'Traj_Group_Data/screened_trajectories.dat' ## where to store all filtered trajectories
+paths_file_c1 = f'Traj_Group_Data/cluster1_paths.dat' ## where to store filtered trajectories for group 1
+paths_file_c2 = f'Traj_Group_Data/cluster2_paths.dat' ## where to store filtered trajectories for group 2
 
-##### Running calculation ########
+############## The points on each trajectory need to be represented as grids. SWITCH controls whether you need to assign these grids or you have already done so.
+SWITCH = 1  ## if you have already assigned grids to paths: SWITCH = 0, otherwise: SWITCH = 1
 
-####### Constructing grid ########
+##############################################
+######## Running calculation####### 
+#############################################
+
+####### Grid construction ########
+
 Grid_z,Grid_inc,Grid_az,Grid_density = Grid_Construct.grid_construction (data, transitions, z_index, inc_index, az_index, en_index, en_mean, en_std, top_z, bott_z, z_step, inc_step,az_step)
 
 np.savetxt('Grid_Data/grid_density.dat',Grid_density)
@@ -101,7 +101,6 @@ print('Created grids')
 
 ##### Assign each step of every trajectory to a grid ######
 
-
 if SWITCH == 1:
     pathway_grids, pathway_density = Select.assign_paths(transitions, data, z_index, inc_index, az_index, top_z,bott_z,bins_z,bins_inc_ang,bins_az_ang,paths_file,paths_density_file,z_step, inc_step,az_step,Grid_z,Grid_density)
 elif SWITCH==0:
@@ -110,7 +109,7 @@ elif SWITCH==0:
 print('Assigned points along paths to grids')
 ##### Filter trajectories #######
 
-Select.cluster_trajectories(transitions, bins_z, pathway_grids, pathway_density, count_cutoff, density_cutoff, cluster_cutoff,paths_file,paths_file_c1,paths_file_c2,path_gridfle_c1, path_gridfle_c2,Grid_z,Grid_az,Grid_density)
+Select.cluster_trajectories(transitions, bins_z, pathway_grids, pathway_density, count_cutoff, density_cutoff, cluster_cutoff,paths_file,paths_file_c1,paths_file_c2,Grid_z,Grid_az,Grid_density)
 
 print('Grouped trajectories')
 

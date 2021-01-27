@@ -1,7 +1,6 @@
 #######Minimization of each pose from exhaustive sampling procedure#######
 #########################################################################
 ####### Important parameters to set: ############
- 
 # GBIS on/off: whether to use Generalized Born Implicit Solvent or not 
 # minimize # : # represents number of steps to minimize 
 
