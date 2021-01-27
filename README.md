@@ -1,6 +1,5 @@
 ******************************************************************************
 # Monte Carlo based Pathway Search (MCPS) for exploring molecular processes in high-dimensional conformational space
-===============================================================================
 
 Contributors: Archit Vasan and Nandan Haloi
 
