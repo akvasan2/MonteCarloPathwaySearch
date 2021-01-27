@@ -5,8 +5,9 @@ Most Likely Pathway determination after performing multiple MCPS trajectories
 Scripts used to obtain most likely paths after multiple MCPS trajectories are identified. 
 
 Involves 2 steps: 
-1. Gridding the data and filtering trajectories passing through into groups (Filter_Trajectories.py) 
-2. Evaluating a transition matrix for each group and identifying the Most Likely path from each transition matrix (Dijkstras/Find_Paths.py)
+
+1. Gridding the trajectory data and filtering trajectories passing through high density grids into groups according to a cutoff (Filter_Trajectories.py) 
+2. Evaluating a transition matrix for each group and applying Dijkstra's algorithm to each transition matrix to identify the most Likely path  (Dijkstras/Find_Paths.py)
 
 Parameters for each step:
 
@@ -28,27 +29,30 @@ Parameters for each step:
         inc_step
         az_step
 	
-	Top and bottom z-values of grid.  Will use this grid later to select trajectories so adjust this accordingly 
+	Top and bottom z-values of grid.  Will use this grid to select trajectories so adjust this accordingly 
+
         top_z
         bott_z
 	
-	cluster_cutoff: how to cluster trajectories.  In our case we divide the groups based on whether the azimuthal is greater/lower than 180 
+	density_cutoff: we are using grids denser than this to group trajectories.
 
-	density_cutoff: we are using grids denser than this to group trajectories
+	cluster_cutoff: how to group trajectories.  In our case we divide the groups based on whether the azimuthal is greater/lower than a cutoff
 
-	paths_file: contains all screened trajectoreis 
-        paths_file_c1: cluster1 trajectories
-        paths_file_c2 : cluster2 trajectories
-        path_gridfle_c1 cluster1 trajectories in grid representaition ()
-        path_gridfle_c2 cluster2 trajectories in grid representaition ()
+	The points on each trajectory need to be represented as grids. SWITCH controls whether you need to assign these grids or you have already done so.
+	
+	SWITCH:if you've already assigned grids: SWITCH = 0, otherwise: SWITCH = 1
 
-	SWITCH:if you've already assigned grids to paths: SWITCH = 0, otherwise: SWITCH = 1
+	paths_file: all screened trajectories file
+        paths_file_c1: cluster1 trajectories file
+        paths_file_c2 : cluster2 trajectories file
+
+     	Final output: filtered trajectories for each group 
 
 2. Most Likely Pathways (Find_Paths.py) 
 
 	cluster1 transitions file
 	cluster2 transitions file
-	
+
 	Indices for z, inc, azimuthal, energy in input data (inputted to MCPS initially)
 	z_ind 	
         inc_in
@@ -57,11 +61,11 @@ Parameters for each step:
 
 	data: input data	
 
-	Top and bottom z-values for algorithm.  Be careful that this is different than from grid in step 1. Will determine ending and starting z-values of Most likely path.
+	Top and bottom z-values to apply Dijkstra's algorithm.  Be careful that this is different than from grid in step 1. Will determine ending and starting z-values of Most likely path.
 
-	step sizes used to build transition matrix.  can be different from in previous step.
+	Step sizes used to build transition matrix. 
 	z_step
         inc_step
         az_step 
 
-	Will output pathway files for each cluster
+	Final output:  most likely pathway for each cluster

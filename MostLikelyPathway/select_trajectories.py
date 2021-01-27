@@ -42,7 +42,9 @@ def assign_paths(transitions, data, z_ind, inc_ind, az_ind, top_z,bott_z,bins_z,
                                     it = (z*len(bins_inc_ang)*len(bins_az_ang)) + inc*len(bins_az_ang) + az+1 
                                     if data[f][az_ind]>=bins_az_ang[az] and data[f][az_ind]<=bins_az_ang[az]+az_step:
                                         pathway_grids[i] = np.append( pathway_grids[i], it)
-                                        pathway_density[i] = np.append( pathway_density[i], Grid_density[it] )
+                                        print(it)
+                                        print(Grid_density[it-1])
+                                        pathway_density[i] = np.append( pathway_density[i], Grid_density[it-1] )
                                         break
 
     for i in range(len(pathway_grids)):
@@ -107,7 +109,7 @@ def cluster_trajectories(transitions, bins_z, pathway_grids, pathway_density, co
 
             for j in range(len(pathway_grids[i])):
                 f = int(pathway_grids[i][j])
-                if Grid_z[f]==z and pathway_density[i][j]>=density_cutoff: #### Only use this point if the density is > density_cutoff and the z lies within the correct location 
+                if Grid_z[f-1]==z and pathway_density[i][j]>=density_cutoff: #### Only use this point if the density is > density_cutoff and the z lies within the correct location 
                     countz += 1
                     ###### Depending on if the point belongs to a particular cutoff, increase the counter 
                     if Grid_az[f]<cluster_cutoff:

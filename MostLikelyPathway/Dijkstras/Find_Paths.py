@@ -32,7 +32,7 @@ transitions_c2=transitions_tot
 
 
 ######################## Input data from docking #######################3
-data=np.loadtxt('../../MCPS/Input_Files/input.dat')
+data=np.loadtxt('../../Input_Files/input.dat')
 
 ###################Defining parameters #########################
 ####################D###################D##################D
@@ -47,7 +47,9 @@ beta=np.std(data[:,en_ind])
 ##### Define z bins
 
 top_z=np.max(data[:,0])
-bott_z=np.min(data[:,0])
+print(top_z)
+bott_z=-11.5
+print(bott_z)
 
 ##### Step in each z, inc, az bin
 
@@ -66,7 +68,6 @@ for i in range(z_num):
 
 bins_inc_ang=np.arange(0,180,inc_step)
 bins_az_ang=np.arange(0,360,az_step)
-
 
 Met_mat_file_c1 = 'Cluster1/Data_Files/met_matrix_grid.dat' #### where to store cluster1 metropolis matrix
 

@@ -18,7 +18,7 @@ cmap="RdBu_r"
 
 #### Load in input data ####
 
-data_file='../MCPS/Input_Files/input.dat' #### File containing raw data obtained from Conf_Search protocol
+data_file='../Input_Files/input.dat' #### File containing raw data obtained from Conf_Search protocol
 
 data=np.loadtxt(data_file)
 # Index for each slow coordinate
@@ -34,7 +34,7 @@ en_std = np.std(data[:,en_index])
 en_mean = np.mean(data[:,en_index])
 
 ##### Load in transition data
-transition_file = '../MCPS/Output_Files/transition_search.dat' #### File containing transitions from MCPS
+transition_file = '../Output_Files/transition_search.dat' #### File containing transitions from MCPS
 num_transitions = 2000 ### number of transitions to load.  Use a number at which the density converges
 
 t_file=open(transition_file)
@@ -46,11 +46,12 @@ with t_file as my_file:
 transitions=transitions_tot[0:num_transitions]
 
 ###### Grid construction parameters
+
 z_step = 1
-inc_step = 9
+inc_step = 18
 az_step = 18
-top_z=4.5 ### topmost z to create grid
-bott_z=-2.5 ### bottomost z
+top_z=6 ### topmost z to create grid
+bott_z=-2 ### bottomost z
 
 ##### Trajectory selection parameters
 
@@ -73,8 +74,8 @@ paths_density_file = 'pathway_density.dat' #### Density at each point along traj
     
 ###### Group trajectories ########
 
-cluster_cutoff = 180 #### Define how to cutoff the clusters
-density_cutoff = 0.05
+cluster_cutoff = 0 #### Define how to cutoff the clusters.  In code, this is defined as the aziuthal angle to cutoff the clusters.  If you do not want to cluster, then just set this cutoff to 0
+density_cutoff = 0.2
 count_cutoff = len(bins_z)-1
 
 paths_file = f'Traj_Group_Data/screened_trajectories.dat'
@@ -85,10 +86,6 @@ path_gridfle_c2 = f'Traj_Group_Data/cluster2_paths_grid.dat'
 
 ############## if you've already assigned grids to paths: SWITCH = 0, otherwise: SWITCH = 1
 SWITCH = 1  
-
-### Output Files
-grid_density_file = 'Grid_Data/grid_density.dat'
-grid_z_file = 'Grid_Data/grid_z.dat'
 
 ##### Running calculation ########
 
