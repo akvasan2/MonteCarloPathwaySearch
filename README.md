@@ -30,13 +30,12 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 
 ##### How to run:
 	
-	cd Conf_Search/Initial_Search
-	
 	vmd
 
 	source run.tcl
 
 	Note: must first open vmd in gui mode and then source run.tcl
+	Update relevant parameters in config.tcl 
 
 ##### Output:
 
@@ -113,45 +112,49 @@ Algorithm to walk through the energy landscape using MC moves. Since rotation an
 #### Code description:
 
 Determination of most likely pathways sampled in our MCPS trajectories. The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. 
+
 #### Divided into 2 substeps:
 
 #### A. Filtering trajectories (Found in MostLikelyPathway)	
 
 ##### How to run:
 
-	python Filter_Trajectories.py
+python Filter_Trajectories.py
 
 ##### Output:
 
-	Traj_Group_Data/cluster1_paths.dat
-		   
-	Traj_Group_Data/cluster2_paths.dat
+Traj_Group_Data/cluster1_paths.dat
+	   
+Traj_Group_Data/cluster2_paths.dat
 
 #### B. Idenfitication of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
 
 ##### How to run:
 
-	python Dijkstras/Find_Paths.py
+python Dijkstras/Find_Paths.py
 
 ##### Output:
 
-	Cluster1/pathway.dat: Most Likely Path files for each group 
-	Cluster2/pathway.dat
+Cluster1/pathway.dat: Most Likely Path files for each group 
+Cluster2/pathway.dat
 
 ## Necessary softwares/programming environments:
 
-	VMD
-	Additional VMD plugins necessary: 
-		Orient: Instructions to install are at https://www.ks.uiuc.edu/Research/vmd/script_library/scripts/orient/
-	
-	Python 3
-	Modules necessary:
-		numpy
-		math
-		random
-		multiprocessing
-		joblib
-		csv
-		matplotlib
+### VMD
 
-	NAMD2
+#### Additional VMD plugins necessary: 
+
+Orient: Instructions to install are at https://www.ks.uiuc.edu/Research/vmd/script_library/scripts/orient/
+
+### Python 3
+
+### Modules necessary:
+numpy
+math
+random
+multiprocessing
+joblib
+csv
+matplotlib
+
+### NAMD2
