@@ -22,15 +22,21 @@ with t_file as my_file:
         transitions_tot.append(myarray)
 transitions=transitions_tot
 
-z_step = 1
-inc_step = 18
-az_step = 18
+data=np.loadtxt('../../../Input_Files/input.dat') ## input data from Conf_search
 
-data=np.loadtxt('../../../Input_Files/input.dat')
+Most_likely_paths=[int(p) for p in np.loadtxt('pathway.dat')] ## most likely path from Dijkstra's algorithm
 
-###### Load in most likely path from Dijkstra's algorithm ######
+z_ind = 0
+inc_ind = 1
+az_ind = 2
+en_ind = 3
 
-Most_likely_paths=[int(p) for p in np.loadtxt('pathway.dat')]
+top_z=np.max(data[:,0]) ## starting z used to build transition matrix
+bott_z=-11.5 ## ending z used to build transition matrix 
+
+z_step = 1 ## step size used to build transition matrix
+inc_step = 18 ## step size used to build transition matrix
+az_step = 18 ## step size used to build transition matrix
 
 ###### Create grids in z, incliantion and azimuthal spaces.  These grids are used to plot the eventual path ######
 
@@ -41,8 +47,6 @@ Grid_ang=[]
 Grid_az=[]
 iteration=0
 
-top_z=np.max(data[:,0])
-bott_z=np.min(data[:,0])
 z_step=1
 z_num=int((top_z-bott_z)/float(z_step))
 grid_z=[]
