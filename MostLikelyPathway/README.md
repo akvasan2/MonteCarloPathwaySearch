@@ -5,10 +5,11 @@ Most Likely Pathway determination after performing multiple MCPS trajectories
 Scripts used to obtain most likely paths after multiple MCPS trajectories are identified. 
 
 Involves 2 steps: 
-1. Gridding the data and splitting trajectories into groups (Filter_Trajectories.py) 
+1. Gridding the data and filtering trajectories passing through into groups (Filter_Trajectories.py) 
 2. Evaluating a transition matrix for each group and identifying the Most Likely path from each transition matrix (Dijkstras/Find_Paths.py)
 
 Parameters for each step:
+
 1. Filtering trajectories (Filter_Trajectories.py)
 	data_file: exhaustive search data
 
@@ -43,7 +44,7 @@ Parameters for each step:
 
 	SWITCH:if you've already assigned grids to paths: SWITCH = 0, otherwise: SWITCH = 1
 
-2. Find Most Likely Pathways (Find_Paths.py) 
+2. Most Likely Pathways (Find_Paths.py) 
 
 	cluster1 transitions file
 	cluster2 transitions file

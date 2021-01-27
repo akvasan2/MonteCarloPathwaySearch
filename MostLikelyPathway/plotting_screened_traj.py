@@ -86,6 +86,7 @@ for i in range(len(transitions_c2)):
 
 
 ########### Plot inclination vs z for each cluster #############
+################################################################
 
 for i in range(len(transitions_c1)):
     plt.plot(transitions_z_c1[i],transitions_inc_c1[i],color='black')
@@ -99,6 +100,7 @@ plt.savefig('Images/clusters_z_inc.png',bbox_inches='tight')
 plt.close()
 
 ########### Plot azimuthal vs z for each cluster ################
+################################################################
 
 transitions_c1_az_total =  []
 transitions_c1_inc_total = []

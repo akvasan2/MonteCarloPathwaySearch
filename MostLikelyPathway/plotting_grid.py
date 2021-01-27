@@ -20,7 +20,6 @@ with t_file as my_file:
         transitions_tot.append(myarray)
 transitions=transitions_tot[0:2000]
 
-##### Input data ######
 data = np.loadtxt('../MCPS/Input_Files/input.dat') #### Input file from exhaustive searhc protocol
 
 #### Grid files from grid construction step #####
@@ -30,6 +29,9 @@ az_grid = np.loadtxt('Grid_Data/grid_az.dat')
 
 dens_grid = np.loadtxt('Grid_Data/grid_density.dat')
 num_dens_grid = dens_grid
+
+top_z = 4.5 #### Top and bottom of the grid
+bott_z = -2.5
 
 ####### grids in z, inc, az spaces #########
 
@@ -46,11 +48,12 @@ plt.close()
 cmap="RdBu_r"
 
 ######## 3D plot of each density grid #######
+
 fig=plt.figure()
 ax = plt.axes(projection='3d')
 dens = ax.scatter3D(z_grid,az_grid,inc_grid,c=num_dens_grid, cmap=cmap)
 
-ax.set_xlim(-2,4.5)
+ax.set_xlim(bott_z,top_z)
 ax.set_ylim(0,360)
 ax.set_zlim(0,180)
 plt.savefig('Images/gridding_density_all.png')
