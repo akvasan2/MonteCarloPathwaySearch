@@ -1,5 +1,12 @@
 ###### File used to make fix.pdb and PIE.pdb files used for minimization and pair interaction energy calculation
 
+###### Important parameters #######
+
+# sel1, sel2: 2 sets of atoms used when calculating pair interaction energy
+# sel: atoms to be fixed during minimization
+
+###################################
+
 mol load psf system.psf pdb system.pdb
 
 #### making PIE.pdb
