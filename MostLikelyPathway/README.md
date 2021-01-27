@@ -99,12 +99,16 @@ How to run each step:
 Output for each step:
 
 		1. 
-		   Filtered trajectories for each group
+		   Filtered trajectories
 
-		   Traj_Group_Data/cluster1_paths.dat
+		   	Traj_Group_Data/cluster1_paths.dat
 		   
-		   Traj_Group_Data/cluster2_paths.dat
+		   	Traj_Group_Data/cluster2_paths.dat
 
-		2. Most likely pathway for each cluster: pathway.dat 
+		2. Most likely pathway for each cluster: 
+			
+			Cluster1/pathway.dat 
+			
+			Cluster2/pathway.dat
 		
 
