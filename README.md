@@ -88,7 +88,7 @@ Output:
 
 	slow_coor.dat: columns are z-coor, inclination, azimuthal data for each pose 
 
-**Monte Carlo Based Pathway Search (MCPS).** Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that interested conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. (Found in MCPS directory) 
+**2. Monte Carlo Based Pathway Search (MCPS).** Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that interested conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. (Found in MCPS directory) 
 
 How to run:
 
@@ -99,7 +99,7 @@ Output:
 	Output_Files/transition_search.dat
 
 
-**Determination of most likely pathways sampled in our MCPS trajectories.** The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. (Found in MostLikelyPathway directory)
+**3. Determination of most likely pathways sampled in our MCPS trajectories.** The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. (Found in MostLikelyPathway directory)
 
 Divided into 2 substeps:
 
