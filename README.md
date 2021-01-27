@@ -36,7 +36,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 
 	Note: must first open vmd in gui mode and then source run.tcl
 	
-	Update relevant parameters in config.tcl 
+	Update parameters in config.tcl 
 
 ##### Output:
 
@@ -56,7 +56,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 
 	bash run.sh
 	
-	Update relevant parameters in minimize_1.namd and run.sh
+	Update parameters in minimize_1.namd and run.sh
 
 ##### Output:
 
@@ -76,7 +76,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 	
 	bash run.sh 
 	
-	Update relevant parameters in pie_1.namd and run.sh
+	Update parameters in pie_1.namd and run.sh
 
 ##### Output:
 	
@@ -92,7 +92,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 	
 	vmd slow_coor.tcl 
 
-	Update relevant parameters in slow_coor.tcl
+	Update parameters in slow_coor.tcl
 
 ##### Output:
 
@@ -108,7 +108,7 @@ Algorithm to walk through the energy landscape using MC moves. Since rotation an
 
 	python run.py
 
-	Update relevant parameters in run.py
+	Update parameters in run.py
 
 ##### Output:
 
@@ -130,7 +130,7 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 	python Filter_Trajectories.py
 
-	Update relevant parameters in Filter_Trajectories.py
+	Update parameters in Filter_Trajectories.py
 
 ##### Output:
 
@@ -144,7 +144,7 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 	python Dijkstras/Find_Paths.py
 
-	Update relevant parameters in Dijkstras/Find_Paths.py
+	Update parameters in Dijkstras/Find_Paths.py
 
 ##### Output:
 
