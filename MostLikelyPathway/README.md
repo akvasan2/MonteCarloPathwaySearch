@@ -1,5 +1,5 @@
 **********************************************
-Most Likely Pathway determination after performing multiple MCPS trajectories
+Most Likely Pathway Identification 
 ===============================================================================
 
 Scripts used to obtain most likely paths after multiple MCPS trajectories are identified. 
