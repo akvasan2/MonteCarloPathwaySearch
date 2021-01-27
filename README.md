@@ -14,19 +14,17 @@ Method to efficiently and systematically sample high-dimensional molecular proce
 
 Involves 3 steps:
 
-**Exhaustive search for antibiotic poses within translational and rotational space.**  After this search, a multidimensional energy landscape is created by evaluating antibiotic-protein interaction energy for each pose. (Found in Conf_Search directory) 
+**1. Exhaustive search for antibiotic poses within translational and rotational space.**  After this search, a multidimensional energy landscape is created by evaluating antibiotic-protein interaction energy for each pose. (Found in Conf_Search directory) 
 
 Divided into 4 substeps:
 
-A. Exhaustive initial search of all poses for the antibiotic. (Found in Conf_Search/Initial_Search)
+A. Exhaustive initial search of all poses for the antibiotic. (Found in Conf_Search/Initial_Search) 
 
-Involves:
+Involves: Generating multiple drug orientations by aligning a vector of the drug to fibonacci sphere and also generating self rotations of the drug
 	
-	Generating multiple drug orientations by aligning a vector of the drug to fibonacci sphere and also generating self rotations of the drug
-	
-	Translating the drug to all possible positions within the protein at points along a grid.
+Translating the drug to all possible positions within the protein at points along a grid.
 
-	Removing any clashes or ring pierces between drug and protein.
+Removing any clashes or ring pierces between drug and protein.
 
 Required files:
         	
