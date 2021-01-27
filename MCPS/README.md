@@ -5,7 +5,7 @@ Monte Carlo Based Pathway Search Algorithm
 About:
 
 
-Novel method used to obtain favorable trajectories using data from the exhaustive conformational search protocol while considering slow degrees of freedom (z-coordinate, inclination, azimuthal angle).  
+Novel method used to obtain favorable trajectories using data from the exhaustive conformational search protocol while considering slow degrees of freedom.  
 
 These favorable trajectories are identified using Monte Carlo (MC) moves with a limited change in slow coordinates in each MC move. 
 
@@ -14,7 +14,7 @@ The z-coordinate is used as a primary slow coordinate to define the pathway prog
 
 The values for these variables need to be previously calculated.
 
-We advise that you run this multiple times to obtain multiple trajectories to sufficiently sample conformational space.
+We advise that you run this multiple times to obtain multiple trajectories to sufficiently sample conformational space. Convergence can be determined by plotting with plotting.py
 
 This code can be run in parallel using multiple CPUs to reduce the computational time.
 
