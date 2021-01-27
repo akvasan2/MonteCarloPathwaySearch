@@ -18,7 +18,7 @@ Involves 3 steps:
 
 Divided into 4 substeps:
 
-A. Exhaustive initial search of all poses for the antibiotic. Involves: generating multiple drug orientations by aligning a vector of the drug to fibonacci sphere and also generating self rotations of the drug, translating the drug to all possible positions within the protein at points along a grid, and removing any clashes or ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
+A. Exhaustive initial search of all poses for the antibiotic. Involves: generating multiple drug orientations, translating the drug to all possible positions within protein at points along a grid, and removing clashes or ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
 
 Required files:
         	
