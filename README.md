@@ -14,26 +14,28 @@ Method to efficiently and systematically sample high-dimensional molecular proce
 
 Involves 3 steps:
 
-1.Exhaustive search for antibiotic poses within translational and rotational space.  After this search, a multidimensional energy landscape is created by evaluating antibiotic-protein interaction energy for each pose. (Found in Conf_Search directory) 
+**Exhaustive search for antibiotic poses within translational and rotational space.**  After this search, a multidimensional energy landscape is created by evaluating antibiotic-protein interaction energy for each pose. (Found in Conf_Search directory) 
 
-   Divided into 4 substeps:
+Divided into 4 substeps:
 
-A.Exhaustive initial search of all poses for the antibiotic. (Found in Conf_Search/Initial_Search)
+A. Exhaustive initial search of all poses for the antibiotic. (Found in Conf_Search/Initial_Search)
+
 Involves:
 	
-	Generating multiple drug orientations by aligning a vector of the drug to fibonacci sphere and doing self rotations of the drug
+	Generating multiple drug orientations by aligning a vector of the drug to fibonacci sphere and also generating self rotations of the drug
 	
 	Translating the drug to all possible positions within the protein at points along a grid.
 
 	Removing any clashes or ring pierces between drug and protein.
-		
 
 Required files:
         	
-	Structure and coordinate files (i.e. psf, pdb) files stored as ../Input_Files/system.psf and ../Input_Files/system.pdb
+	Structure and coordinate files (i.e. psf, pdb) files stored as Conf_Search/Input_Files/system.psf and Conf_Search/Input_Files/system.pdb
 
 How to run:
-		
+	
+	cd Conf_Search/Initial_Search
+	
 	vmd
 
 	source run.tcl
@@ -41,15 +43,16 @@ How to run:
 	Note: must first open vmd in gui mode and then source run.tcl
 
 Output:
+
 	dcds/dcdsstart_*.dcd: dcd containing each pose
 
 B.Minimization of each pose obtained from initial search.  (Found in Conf_Search/Minimization) 
 	
 Required files:
 
-	Structure and coordinate files (i.e. psf, pdb) files stored as ../Input_Files/system.psf and ../Input_Files/system.pdb
+	Structure and coordinate files (i.e. psf, pdb) files stored as Conf_Search/Input_Files/system.psf and Conf_Search/Input_Files/system.pdb
 
-	Parameter files: stored in ../../Parameters
+	Parameter files: stored in Conf_Search/Parameters
         
         fixedAtomsFile specifying atoms to be fixed: stored as ../../Input_Files/fix.pdb. The B column of each atom of the two molecules should equal 1 or 2 
         
@@ -61,23 +64,81 @@ Output:
 
 	minimize_output/dcdsstart_*.dcd
 
+C. Evaluation of pair interaction energy of the minimized drug poses. (Found in Conf_Search/Analysis/PIE)
 
-C. Evaluation of pair interaction energy of the drug poses. (Found in Analysis/PIE)
+Required files:
+	
+	Structure and coordinate (e.g. psf and pdb) files stored in Conf_Search/Input_Files
+	
+	Parameter files: stored in Conf_Search/Parameters
+	
+	pairInteractionFile (PIE.pdb):specifying atoms of the pair of molecules for calculating PIE.  B column of each atom of the two molecules should equal 1 or 2 
 
-D. Evaluation of slow coordinates of the drug poses.  (Found in Analysis/Slow_Coordinates) 
+How to run:
+	
+	bash run.sh 
+
+Output:
+	
+	Output/PIE.dat
+
+D. Evaluation of values for the slow coordinates (z-coordinate, inclination, azimuthal) for the drug poses. Very important to obtain this data to use in the MCPS algorithm (Found in Conf_Search/Analysis/Slow_Coordinates) 
+
+Required files:
+	
+	Structure (i.e. psf) file stored as Conf_Search/Input_Files/system.psf
+
+How to run:
+	
+	vmd slow_coor.tcl 
+
+Output:
+
+	slow_coor.dat: columns are z-coor, inclination, azimuthal data for each pose 
+
+**Monte Carlo Based Pathway Search (MCPS).** Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that interested conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. (Found in MCPS directory) 
+
+How to run:
+
+	python run.py
+
+Output:
+
+	Output_Files/transition_search.dat
 
 
-2. Monte Carlo Based Pathway Search (MCPS) Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that interested conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. (Found in MCPS directory) 
+**Determination of most likely pathways sampled in our MCPS trajectories.** The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. (Found in MostLikelyPathway directory)
 
-3. Determination of most likely pathways sampled in our MCPS trajectories. The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. (Found in MostLikelyPathway directory)
+Divided into 2 substeps:
 
-The README files within each step of the method go into more details about the necessary parameters.
+A. Filtering trajectories (Found in MostLikelyPathway)	
+
+How to run:
+
+	python Filter_Trajectories.py
+
+Output:
+
+	Traj_Group_Data/cluster1_paths.dat
+		   
+	Traj_Group_Data/cluster2_paths.dat
+
+B. Idenfitication of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
+
+How to run:
+
+	python Dijkstras/Find_Paths.py
+
+Output:
+
+	Cluster1/pathway.dat: Most Likely Path files for each group 
+	Cluster2/pathway.dat
 
 Necessary softwares/programming environments:
 
 	VMD
-	Additional plugins necessary: 
-		Orient plugin Instructions to install are at https://www.ks.uiuc.edu/Research/vmd/script_library/scripts/orient/
+	Additional VMD plugins necessary: 
+		Orient: Instructions to install are at https://www.ks.uiuc.edu/Research/vmd/script_library/scripts/orient/
 	
 	Python 3
 	Modules necessary:
@@ -88,4 +149,5 @@ Necessary softwares/programming environments:
 		joblib
 		csv
 		matplotlib
+
 	NAMD2
