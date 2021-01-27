@@ -107,7 +107,7 @@ Algorithm to walk through the energy landscape using MC moves. Since rotation an
 	Output_Files/transition_search.dat
 
 
-### 3. Most Likely Pathways. (Found in MostLikelyPathway directory)
+### 3. Most Likely Pathway Identification. (Found in MostLikelyPathway directory)
 
 
 #### Code description:
