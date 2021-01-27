@@ -107,7 +107,8 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 #### Code description:
 
-Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. 
+Algorithm to walk through the derived multi-dimensional energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. 
+
 ##### How to run:
 
 	Set parameters in run.py
@@ -124,7 +125,7 @@ Algorithm to walk through the energy landscape using MC moves. Since rotation an
 
 #### Code description:
 
-Determination of most likely pathways sampled in our MCPS trajectories. The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. 
+Determination of most likely pathways sampled in our MCPS trajectories. The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. In our implementation, we use this method to obtain two diverging pathways; however, it can also be used to obtain either one or greater than 2 paths, depending on specific cases.
 
 #### Divided into 2 substeps:
 
@@ -142,7 +143,7 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 	   
 	Traj_Group_Data/cluster2_paths.dat
 
-#### B. Idenfitication of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
+#### B. Identification of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
 
 ##### How to run:
 
