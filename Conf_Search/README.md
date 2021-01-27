@@ -9,13 +9,13 @@ This protocol generates a conformational landscape which MCPS walks through usin
 
 The order of steps to use this protocol are:
 	
-1. An exhaustive initial search of all poses for the antibiotic.  Scripts found in Initial_Search/
+1. An exhaustive initial search of all poses for the antibiotic.  (Found in Initial_Search)
 
-2. Minimization of each pose.  Scripts found in Minimization/ 
+2. Minimization of each pose.  (Found in Minimization) 
 
-3. Evaluation of pair interaction energy of the drug poses. Scripts found in Analysis/PIE/
+3. Evaluation of pair interaction energy of the drug poses. (Found in Analysis/PIE)
 
-4. Evaluation of slow coordinates of the drug poses.  Scripts found in Analysis/Slow_Coordinates/ 
+4. Evaluation of slow coordinates of the drug poses.  (Found in Analysis/Slow_Coordinates) 
 
 Follow instructions detailed in the README.MD file within each step's specified directory. 
 
