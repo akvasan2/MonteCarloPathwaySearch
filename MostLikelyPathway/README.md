@@ -89,3 +89,22 @@ Parameters for each step:
 			az_step 
 
 		Final output:  most likely pathway for each cluster
+
+How to run each step:
+
+		1. python Filter_Trajectories.py
+
+		2. python Dijkstras/Find_Paths.py
+
+Output for each step:
+
+		1. 
+		   Filtered trajectories for each group
+
+		   Traj_Group_Data/cluster1_paths.dat
+		   
+		   Traj_Group_Data/cluster2_paths.dat
+
+		2. Most likely pathway for each cluster: pathway.dat 
+		
+

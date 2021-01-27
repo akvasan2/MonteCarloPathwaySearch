@@ -18,7 +18,7 @@ We advise that you run this multiple times to obtain multiple trajectories to su
 
 This code can be run in parallel using multiple CPUs to reduce the computational time.
 
-Parameters:
+Important parameters to specify in run.py:
 
 		data: data from exhaustive conformational search algorithm 
 
@@ -47,3 +47,11 @@ Parameters:
 		num: number of trajectories to obtain
 
 		proc: number of processes to use 
+
+How to run:
+	
+	python run.py
+
+Output:
+
+	Output_Files/transition_search.dat
