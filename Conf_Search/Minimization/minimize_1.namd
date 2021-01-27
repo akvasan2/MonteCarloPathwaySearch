@@ -1,8 +1,16 @@
+#######Minimization of each pose from exhaustive sampling procedure#######
+#########################################################################
+####### Important parameters to set: ############
+ 
+# GBIS on/off: whether to use Generalized Born Implicit Solvent or not 
+# minimize # : # represents number of steps to minimize 
+
 #######Initial structure##########
 structure         ../Input_Files/system.psf 
 coordinates       ../Input_Files/system.pdb
 
 temperature     0
+
 ########output params###########
 outputname      minimize_output/dcdsstart_1
 binaryoutput    no
@@ -32,7 +40,6 @@ parameters             ../Parameters/par_all36_cgenff.prm
 parameters             ../Parameters/carb.str
 
 ###### Fix side chains of protein#######
-
 fixedAtoms     on
 fixedAtomsFile  ../Input_Files/fix.pdb
 fixedAtomsCol        O

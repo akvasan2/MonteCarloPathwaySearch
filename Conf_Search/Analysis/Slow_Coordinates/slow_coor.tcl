@@ -1,4 +1,10 @@
-###### Script to determine z, inclination, and azimuthal angles, which are slow coordiantes for antibiotic permeation
+###### Script to determine z, inclination, and azimuthal angles, which are slow coordiantes for antibiotic permeation#######
+#########################################################################
+##################Important parameters to set: ##################
+
+# head_name and tail_name: head and tail of reference vector for calculation.
+#  output_file: output file name
+#  num_dcds: number of minimized pose data dcds
 
 proc drug_vec { frame head_name tail_name } {
     set head [atomselect top "not protein and name $head_name" frame $frame]

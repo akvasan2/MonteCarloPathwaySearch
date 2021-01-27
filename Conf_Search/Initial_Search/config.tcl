@@ -5,7 +5,6 @@ namespace import Orient::orient
 namespace import ::tcl::mathfunc::min
 
 ############  psf, pdb files with protein and antibiotic ###########
-##################################################################################
 set psf_file "../Input_Files/system.psf"
 set pdb_file "../Input_Files/system.pdb"
 
@@ -16,11 +15,9 @@ set pdb_file "../Input_Files/system.pdb"
 ############# 1. Gen of multi orientations ###############
 
 ###### number of fibonacci points on sphere used to generate theta, phi angles
-
 set num 50 
 
 ###### head and tail atom names for vector used as reference when rotating drug
-
 set head_name "C17" 
 set tail_name "C16"
 
@@ -33,6 +30,7 @@ set self_rot 90
 
 #### pocket residues of protein the grid is centered on
 set pocket_residues {16 40 42 82 132 102 106 113 114 115 116 117 118 119 120}
+#
 #### Grid dimensions: positive and negative max distance from center
 set del_x_pos 8
 set del_x_neg 8
