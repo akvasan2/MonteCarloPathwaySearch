@@ -87,7 +87,7 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 	
 	Output/PIE.dat
 
-#### D. Evaluation of values for the slow coordinates (z-coordinate, inclination, azimuthal) for the drug poses. Very important to obtain this data to use in the MCPS algorithm (Found in Conf_Search/Analysis/Slow_Coordinates) 
+#### D. Evaluation of values for the slow coordinates (z-coordinate, inclination, azimuthal) for the drug poses. (Found in Conf_Search/Analysis/Slow_Coordinates) 
 
 ##### Required files:
 	
@@ -102,18 +102,6 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 ##### Output:
 
 	slow_coor.dat: columns are z-coor, inclination, azimuthal data for each pose 
-
-#### To obtain fix.pdb or PIE.pdb input files, can run files in Conf_Search/Input
-
-##### How to run:
-	
-	Set parameters in make_cnst.tcl
-	
-	vmd make_cnst.tcl 
-	
-##### Output:
-
-	fix.pdb, PIE.pdb: files needed for minimization, pair interaction energy calculation
 
 ### 2. Monte Carlo Based Pathway Search (MCPS). (Found in MCPS directory) 
 
