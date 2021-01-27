@@ -55,6 +55,8 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 ##### How to run:
 
 	bash run.sh
+	
+	Update relevant parameters in minimize_1.namd and run.sh
 
 ##### Output:
 
@@ -73,6 +75,8 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 ##### How to run:
 	
 	bash run.sh 
+	
+	Update relevant parameters in pie_1.namd and run.sh
 
 ##### Output:
 	
@@ -88,6 +92,8 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 	
 	vmd slow_coor.tcl 
 
+	Update relevant parameters in slow_coor.tcl
+
 ##### Output:
 
 	slow_coor.dat: columns are z-coor, inclination, azimuthal data for each pose 
@@ -101,6 +107,8 @@ Algorithm to walk through the energy landscape using MC moves. Since rotation an
 ##### How to run:
 
 	python run.py
+
+	Update relevant parameters in run.py
 
 ##### Output:
 
@@ -122,6 +130,8 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 	python Filter_Trajectories.py
 
+	Update relevant parameters in Filter_Trajectories.py
+
 ##### Output:
 
 	Traj_Group_Data/cluster1_paths.dat
@@ -133,6 +143,8 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 ##### How to run:
 
 	python Dijkstras/Find_Paths.py
+
+	Update relevant parameters in Dijkstras/Find_Paths.py
 
 ##### Output:
 
