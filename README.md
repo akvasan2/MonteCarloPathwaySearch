@@ -100,8 +100,19 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 	slow_coor.dat: columns are z-coor, inclination, azimuthal data for each pose 
 
-### 2. Monte Carlo Based Pathway Search (MCPS). (Found in MCPS directory) 
+#### To obtain fix.pdb or PIE.pdb input files, can run files in Conf_Search/Input
 
+##### How to run:
+	
+	vmd make_cnst.tcl 
+
+	Update parameters in make_cnst.tcl
+
+##### Output:
+
+	fix.pdb, PIE.pdb: files needed for minimization, pair interaction energy calculation
+
+### 2. Monte Carlo Based Pathway Search (MCPS). (Found in MCPS directory) 
 
 #### Code description:
 
