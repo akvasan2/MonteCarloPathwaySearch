@@ -1,17 +1,5 @@
 ######################## Monte Carlo Based Pathway Search Algorithm ##############################
 
-######################## Contributors: Archit Vasan and Nandan Haloi ############################
-######################## Affiliation: University of Illinois at Urbana-Champaign########################
-####################### Emails: akvasan2@illinois.edu, nhaloi2@illinois.edu, ######################
-
-############### Code description: Method to use data to obtain a pathway which is connected (has no large jumps)#############################
-
-################################# Connected in: z, inclination angle, and azimuthal angle space.  The values for these variables need to be previously calculated.
-################################# The z-coordinates are used as a primary coordinate to define the pathway progressioni while the angles restrict exploration of the path.
-################################# Moves are attempted using Metropolis criterion.
-
-####################################################################################################################################################
-
 import numpy as np
 import math as m
 from random import seed
@@ -22,7 +10,6 @@ from joblib import Parallel, delayed
 from datetime import datetime
 import matplotlib.pyplot as plt
 import csv
-
 
 ##### procedure used to standardize energies ######
 

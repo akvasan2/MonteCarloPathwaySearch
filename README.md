@@ -25,7 +25,7 @@ The README files within each step of the method go into more detail about the ne
 Necessary softwares/programming environments:
 
 	VMD
-		Need to install Orient plugin.  Instructions at https://www.ks.uiuc.edu/Research/vmd/script_library/scripts/orient/
+		Orient plugin.  Instructions to install are at https://www.ks.uiuc.edu/Research/vmd/script_library/scripts/orient/
 	
 	Python 3
 		Modules necessary:

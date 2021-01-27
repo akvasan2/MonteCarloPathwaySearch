@@ -1,11 +1,7 @@
 import numpy as np
 import math as m
-from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
-
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 ################################### Run transition matrix code #########################################################

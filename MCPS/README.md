@@ -9,11 +9,14 @@ Novel method used to obtain favorable trajectories using data from the exhaustiv
 
 These favorable trajectories are identified using Monte Carlo (MC) moves with a limited change in slow coordinates in each MC move. 
 
-In our implementation: z, inclination angle, and azimuthal angle are the slow degrees of freedom.
-In particular, the z-coordinates are used as a primary slow coordinate to define the pathway progression while the angles represent orthogonal, secondary slow coordinates.
+In our implementation: z, inclination angle, and azimuthal angle of the antibiotic are the slow degrees of freedom.
+The z-coordinate is used as a primary slow coordinate to define the pathway progression while the angles represent orthogonal, secondary slow coordinates. 
+
 The values for these variables need to be previously calculated.
 
-This code can be run in parallel using multiple CPUs to reduce the computational time
+We advise that you run this multiple times to obtain multiple trajectories to sufficiently sample conformational space.
+
+This code can be run in parallel using multiple CPUs to reduce the computational time.
 
 Parameters:
 
