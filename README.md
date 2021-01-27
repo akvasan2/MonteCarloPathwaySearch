@@ -14,11 +14,11 @@ Method to efficiently and systematically sample high-dimensional molecular proce
 
 Involves 3 steps:
 
-1.  Exhaustive search for antibiotic poses within translational and rotational space.  After this search, a multidimensional energy landscape is created by evaluating antibiotic-protein interaction energy for each pose. (Conf_Search) 
+1.  Exhaustive search for antibiotic poses within translational and rotational space.  After this search, a multidimensional energy landscape is created by evaluating antibiotic-protein interaction energy for each pose. (Found in Conf_Search directory) 
 
-2.  Monte Carlo Based Pathway Search Algorith to walk through the energy landscape using Monte Carlo (MC) moves.  Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. We advise that you run this multiple times to obtain multiple trajectories to sufficiently sample conformational space.  This code can be run on multiple  processors. (MCPS)
+2.  Monte Carlo Based Pathway Search Algorith to walk through the energy landscape using Monte Carlo (MC) moves.  Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. We advise that you run this multiple times to obtain multiple trajectories to sufficiently sample conformational space.  This code can be run on multiple  processors. (Found in MCPS directory)
 
-3. Determination of most likely pathways sampled in our MCPS trajectories.  The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can be used to distinguish diverging paths. (MostLikelyPathway)
+3. Determination of most likely pathways sampled in our MCPS trajectories.  The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can be used to distinguish diverging paths. (Found in MostLikelyPathway directory)
 
 The README files within each step of the method go into more detail about the necessary parameters.
 
