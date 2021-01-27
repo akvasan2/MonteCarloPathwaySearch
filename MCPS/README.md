@@ -46,4 +46,4 @@ Parameters:
 		
 		num: number of trajectories to obtain
 
-		proc: number of processes to use to run code 
+		proc: number of processes to use 
