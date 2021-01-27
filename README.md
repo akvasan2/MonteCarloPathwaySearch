@@ -24,7 +24,7 @@ Exhaustively searches for antibiotic poses within translational and rotational s
 
 #### A. Exhaustive initial search of all poses for the antibiotic. 
 
-Involves: generating multiple drug orientations, translating the drug to all possible positions within protein at points along a grid, and removing clashes or ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
+Involves: generating multiple drug orientations, translating the drug to all possible positions within protein at points along a grid, and removing clashes/ring pierces between drug and protein. (Found in Conf_Search/Initial_Search) 
 
 ##### Required files:
         	
@@ -37,7 +37,8 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 	source run.tcl
 
 	Note: must first open vmd in gui mode and then source run.tcl
-	Update relevant parameters in config.tcl 
+	
+	Update parameters in config.tcl 
 
 ##### Output:
 
@@ -56,6 +57,8 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 ##### How to run:
 
 	bash run.sh
+	
+	Update parameters in minimize_1.namd and run.sh
 
 ##### Output:
 
@@ -74,6 +77,8 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 ##### How to run:
 	
 	bash run.sh 
+	
+	Update parameters in pie_1.namd and run.sh
 
 ##### Output:
 	
@@ -89,6 +94,8 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 	
 	vmd slow_coor.tcl 
 
+	Update parameters in slow_coor.tcl
+
 ##### Output:
 
 	slow_coor.dat: columns are z-coor, inclination, azimuthal data for each pose 
@@ -103,12 +110,14 @@ Algorithm to walk through the energy landscape using MC moves. Since rotation an
 
 	python run.py
 
+	Update parameters in run.py
+
 ##### Output:
 
 	Output_Files/transition_search.dat
 
 
-### 3. Most Likely Pathways. (Found in MostLikelyPathway directory)
+### 3. Most Likely Pathway Identification. (Found in MostLikelyPathway directory)
 
 
 #### Code description:
@@ -121,24 +130,29 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 ##### How to run:
 
-python Filter_Trajectories.py
+	python Filter_Trajectories.py
+
+	Update parameters in Filter_Trajectories.py
 
 ##### Output:
 
-Traj_Group_Data/cluster1_paths.dat
+	Traj_Group_Data/cluster1_paths.dat
 	   
-Traj_Group_Data/cluster2_paths.dat
+	Traj_Group_Data/cluster2_paths.dat
 
 #### B. Idenfitication of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
 
 ##### How to run:
 
-python Dijkstras/Find_Paths.py
+	python Dijkstras/Find_Paths.py
+
+	Update parameters in Dijkstras/Find_Paths.py
 
 ##### Output:
 
-Cluster1/pathway.dat: Most Likely Path files for each group 
-Cluster2/pathway.dat
+	Cluster1/pathway.dat: Most Likely Path files for each group 
+
+	Cluster2/pathway.dat
 
 ## Necessary softwares/programming environments:
 
@@ -150,13 +164,20 @@ Orient: Instructions to install are at https://www.ks.uiuc.edu/Research/vmd/scri
 
 ### Python 3
 
-### Modules necessary:
+#### Modules necessary:
+
 numpy
+
 math
+
 random
+
 multiprocessing
+
 joblib
+
 csv
+
 matplotlib
 
 ### NAMD2
