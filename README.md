@@ -54,6 +54,8 @@ Involves: generating multiple drug orientations, translating the drug to all pos
         
 	fixedAtomsFile specifying atoms to be fixed: stored as ../../Input_Files/fix.pdb. The B column of each atom of the two molecules should equal 1 or 2 
         
+	fix.pdb can be created by running: vmd make_cnst.tcl in the Conf_Search/Input directory.
+
 ##### How to run:
 
 	Set parameters in minimize_1.namd and run.sh
@@ -73,14 +75,14 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 	Parameter files: stored in Conf_Search/Parameters
 	
 	pairInteractionFile (PIE.pdb):specifying atoms of the pair of molecules for calculating PIE.  B column of each atom of the two molecules should equal 1 or 2 
+	PIE.pdb can be created by running: vmd make_cnst.tcl in the Conf_Search/Input directory.
 
 ##### How to run:
 	
 	Set parameters in pie_1.namd and run.sh
 	
 	bash run.sh 
-	
-	
+		
 ##### Output:
 	
 	Output/PIE.dat
