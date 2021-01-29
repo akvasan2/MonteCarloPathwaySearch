@@ -171,7 +171,7 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 
 ##### Output:
 	path_frames.dat:  all possible frames at each point along the path
-	accepted_pathway.dat : frame index for the final pathway obtained in algorithm.
+	accepted_pathway.dat : frames for points along the final pathway obtained in algorithm.
 	PDBs/window_*.pdb: snapshot at each point along path.
 
 ## Necessary softwares/programming environments:
