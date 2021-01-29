@@ -127,7 +127,7 @@ Algorithm to walk through the derived multi-dimensional energy landscape using M
 
 Determination of most likely pathways sampled in our MCPS trajectories. The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. In our implementation, we use this method to obtain two diverging pathways; however, it can also be used to obtain either one or greater than 2 paths, depending on specific cases.
 
-#### Divided into 2 substeps:
+#### Divided into 3 substeps:
 
 #### A. Filtering trajectories (Found in MostLikelyPathway)	
 
@@ -153,11 +153,26 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 	
 ##### Output:
 
-	Cluster1/pathway.dat: Most Likely Path files for each group, specifying the grid  
+	Cluster1/pathway.dat: Most Likely Path for each group of trajectories, specifying the grid at each point along the path  
 
 	Cluster2/pathway.dat
 
-### Plot the paths (Cluster*/pathway.dat) using plotting_path.py
+##### Plot the paths (Cluster*/pathway.dat) using plotting_path.py
+
+#### C. Determination of representative snapshots for each path
+
+##### How to run:
+
+	Set parameters in path_select_frames.py and make_trajectory.tcl
+	
+	python path_select_frames.py
+	
+	vmd make_trajectory.tcl
+
+##### Output:
+	path_frames.dat:  all possible frames at each point along the path
+	accepted_pathway.dat : frame index for the final pathway obtained in algorithm.
+	PDBs/window_*.pdb: snapshot at each point along path.
 
 ## Necessary softwares/programming environments:
 
