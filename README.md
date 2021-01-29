@@ -11,7 +11,7 @@ Emails: akvasan2@illinois.edu, nhaloi2@illinois.edu
 
 Method to efficiently and systematically sample high-dimensional molecular processes while considering multiple slow degrees of freedom. In our implementation, we focus on obtaining permeation pathways of antibiotics through outer membrane porins. 
 
-## Procol involves 3 steps:
+## Protocol involves 3 steps:
 
 ### 1. Exhaustive search for antibiotic poses (Found in Conf_Search directory) 
 
@@ -32,7 +32,7 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 ##### How to run:
 	
-	Set parameters in config.tcl 
+	Set parameters in run.tcl 
 	
 	vmd
 
@@ -54,6 +54,8 @@ Involves: generating multiple drug orientations, translating the drug to all pos
         
 	fixedAtomsFile specifying atoms to be fixed: stored as ../../Input_Files/fix.pdb. The B column of each atom of the two molecules should equal 1 or 2 
         
+	fix.pdb can be created by running: vmd make_cnst.tcl in the Conf_Search/Input directory.
+
 ##### How to run:
 
 	Set parameters in minimize_1.namd and run.sh
@@ -73,19 +75,19 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 	Parameter files: stored in Conf_Search/Parameters
 	
 	pairInteractionFile (PIE.pdb):specifying atoms of the pair of molecules for calculating PIE.  B column of each atom of the two molecules should equal 1 or 2 
+	PIE.pdb can be created by running: vmd make_cnst.tcl in the Conf_Search/Input directory.
 
 ##### How to run:
 	
 	Set parameters in pie_1.namd and run.sh
 	
 	bash run.sh 
-	
-	
+		
 ##### Output:
 	
 	Output/PIE.dat
 
-#### D. Evaluation of values for the slow coordinates (z-coordinate, inclination, azimuthal) for the drug poses. Very important to obtain this data to use in the MCPS algorithm (Found in Conf_Search/Analysis/Slow_Coordinates) 
+#### D. Evaluation of values for the slow coordinates (z-coordinate, inclination, azimuthal) for the drug poses. (Found in Conf_Search/Analysis/Slow_Coordinates) 
 
 ##### Required files:
 	
@@ -101,23 +103,12 @@ Involves: generating multiple drug orientations, translating the drug to all pos
 
 	slow_coor.dat: columns are z-coor, inclination, azimuthal data for each pose 
 
-#### To obtain fix.pdb or PIE.pdb input files, can run files in Conf_Search/Input
-
-##### How to run:
-	
-	Set parameters in make_cnst.tcl
-	
-	vmd make_cnst.tcl 
-	
-##### Output:
-
-	fix.pdb, PIE.pdb: files needed for minimization, pair interaction energy calculation
-
 ### 2. Monte Carlo Based Pathway Search (MCPS). (Found in MCPS directory) 
 
 #### Code description:
 
-Algorithm to walk through the energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. 
+Algorithm to walk through the derived multi-dimensional energy landscape using MC moves. Since rotation and translation are slow degrees of freedom, limited changes in antibiotic orientation and position are allowed in each MC move. Need to run this multiple times to obtain multiple trajectories such that conformational space is sufficiently sampled. You can determine the convergence by plotting the trajectory density, projected onto the individual conformation spaces. This code can be run on multiple processors. 
+
 ##### How to run:
 
 	Set parameters in run.py
@@ -134,7 +125,7 @@ Algorithm to walk through the energy landscape using MC moves. Since rotation an
 
 #### Code description:
 
-Determination of most likely pathways sampled in our MCPS trajectories. The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. 
+Determination of most likely pathways sampled in our MCPS trajectories. The trajectory data is used to construct a transition matrix which is inputted into Dijkstra's algorithm to obtain the most likely path. Can also be used to distinguish diverging paths. In our implementation, we use this method to obtain two diverging pathways; however, it can also be used to obtain either one or greater than 2 paths, depending on specific cases.
 
 #### Divided into 2 substeps:
 
@@ -152,7 +143,7 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 	   
 	Traj_Group_Data/cluster2_paths.dat
 
-#### B. Idenfitication of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
+#### B. Identification of most likely pathways (Found in MostLikelyPathway/Dijkstras) 
 
 ##### How to run:
 
@@ -162,9 +153,11 @@ Determination of most likely pathways sampled in our MCPS trajectories. The traj
 	
 ##### Output:
 
-	Cluster1/pathway.dat: Most Likely Path files for each group 
+	Cluster1/pathway.dat: Most Likely Path files for each group, specifying the grid  
 
 	Cluster2/pathway.dat
+
+### Plot the paths (Cluster*/pathway.dat) using plotting_path.py
 
 ## Necessary softwares/programming environments:
 
