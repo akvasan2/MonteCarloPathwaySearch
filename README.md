@@ -7,6 +7,7 @@ Affiliation: University of Illinois at Urbana-Champaign
 
 Emails: akvasan2@illinois.edu, nhaloi2@illinois.edu
 
+If you want to use MCPS please cite: Chem. Sci., 2021,12, 15028-15044
 ## General overview: 
 
 Method to efficiently and systematically sample high-dimensional molecular processes while considering multiple slow degrees of freedom. In our implementation, we focus on obtaining permeation pathways of antibiotics through outer membrane porins. 
